@@ -6,8 +6,7 @@ class Target extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper('auth_helper');
-		$this->load->helper(array('form', 'url'));
+		authentication();
     }
 
     public function index()
@@ -30,7 +29,9 @@ class Target extends CI_Controller
 		
 		if($id_status != 2){
 			$where = "target.id_user LIKE '%".$id_user."%' AND target.id_status LIKE '%".$id_status."%'";
-			if($id_status == 1){
+			if($id_status == 0){
+				$status = 'Not Visited';
+			} else if($id_status == 1){
 				$status = 'Visited';
 			} else if($id_status == 7){
 				$status = 'Paid';
@@ -58,7 +59,7 @@ class Target extends CI_Controller
 				$user_name = $user->nama_user;
 			}
 			
-			$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;FIlter User : '.$user_name.' and Status : '.$status.'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+			$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Filter User : '.$user_name.' and Status : '.$status.'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		}
 
         $this->load->view('templates/header', $data);

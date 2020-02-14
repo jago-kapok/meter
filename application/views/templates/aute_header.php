@@ -13,7 +13,6 @@
 
     <!-- Custom css for this template-->
     <link href="<?= base_url('assets/'); ?>plugins/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="<?= base_url('assets/'); ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url('assets/'); ?>dist/css/adminlte.min.css" rel="stylesheet" type="text/css">
 	
 	<!-- Google Font: Source Sans Pro -->
@@ -21,4 +20,4 @@
 
 </head>
 
-<body class="bg-gradient-primary"> 
+<body class="bg-gradient-info"> 

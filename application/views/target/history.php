@@ -40,7 +40,9 @@
 		  <?php else : ?>
 			<td><?= date('d-m-Y H:i:s', strtotime($t['tgl_ba'])); ?></td>
 		  <?php endif; ?>
-		  <?php if($t['id_status'] == 1) : ?>
+		  <?php if($t['id_status'] == 0) : ?>
+			<td><span class="badge badge-secondary">Not Visited</span></td>
+		  <?php elseif($t['id_status'] == 1) : ?>
 			<td><span class="badge badge-info">Visited</span></td>
 		  <?php elseif($t['id_status'] == 7) : ?>
 			<td><span class="badge badge-success">Paid</span></td>
@@ -85,6 +87,7 @@
 		  <label>Status</label>
 		  <select name="id_status" class="form-control form-control-sm">
             <option value="%">All</option>
+			<option value="0">Not Visited</option>
 			<option value="1">Visited</option>
 			<option value="2">Not Paid</option>
 			<option value="7">Paid</option>

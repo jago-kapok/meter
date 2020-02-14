@@ -44,7 +44,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a href="#" class="nav-link" data-toggle="dropdown">
-		  Welcome, Nama User&nbsp;
+		  Welcome, <?= $this->session->userdata('fullname'); ?>&nbsp;
 		  <i class="far fa-user-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
@@ -54,7 +54,7 @@
             <i class="fas fa-user-cog mr-2"></i> Profile
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="<?= base_url('auth/logout'); ?>" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i> Sign Out
           </a>
       </li>
@@ -75,8 +75,9 @@
         <div class="image">
           <img src="<?= base_url('assets/'); ?>dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
         </div>
-        <div class="info p-2">
-          <span class="d-block text-light">&nbsp;&nbsp;<strong>Nama User</strong></span>
+        <div class="info" style="margin-top:-6px">
+          <span class="d-block text-light">&nbsp;&nbsp;<strong><?= $this->session->userdata('fullname'); ?></strong></span>
+          <span class="d-block text-light">&nbsp;&nbsp;<?= $this->session->userdata('level'); ?></span>
         </div>
       </div>
 

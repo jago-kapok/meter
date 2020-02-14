@@ -6,10 +6,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Target - Visited</span>
-          <span class="info-box-number">
-            10
-            <small>%</small>
-          </span>
+          <span class="info-box-number" style="font-size:20px"><?= $visited; ?></span>
         </div>
       </div>
     </div>
@@ -19,7 +16,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Target - Not Paid</span>
-          <span class="info-box-number">41,410</span>
+          <span class="info-box-number" style="font-size:20px"><?= $not_paid; ?></span>
         </div>
       </div>
     </div>
@@ -32,7 +29,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Target - Paid</span>
-          <span class="info-box-number">760</span>
+          <span class="info-box-number" style="font-size:20px"><?= $paid; ?></span>
         </div>
       </div>
     </div>
@@ -42,7 +39,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Target - Blocked</span>
-          <span class="info-box-number">2,000</span>
+          <span class="info-box-number" style="font-size:20px"><?= $blocked; ?></span>
         </div>
       </div>
     </div>
@@ -60,7 +57,7 @@
             </button>
             <div class="btn-group">
               <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-				<i class="fas fa-wrench"></i>
+				<i class="fas fa-chart-bar"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-right" role="menu">
                 <a href="#" class="dropdown-item">Action</a>
@@ -70,9 +67,6 @@
                 <a href="#" class="dropdown-item">Separated link</a>
               </div>
             </div>
-            <button type="button" class="btn btn-tool" data-card-widget="remove">
-              <i class="fas fa-times"></i>
-            </button>
           </div>
         </div>
         
@@ -80,82 +74,41 @@
           <div class="row">
             <div class="col-md-8">
               <p class="text-center">
-                <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                <!--<strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>-->
               </p>
 
               <div class="chart">
-                <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                <canvas id="targetChart" height="300" style="height:300px"></canvas>
               </div>
             </div>
             <div class="col-md-4">
               <p class="text-center">
-                <strong>Goal Completion</strong>
+                <strong>Table Information</strong>
               </p>
 
               <div class="progress-group">
-                Add Products to Cart
-                <span class="float-right"><b>160</b>/200</span>
+                Total User
+                <span class="float-right"><b><?= $user; ?></b></span>
                 <div class="progress progress-sm">
-                  <div class="progress-bar bg-primary" style="width: 100%"></div>
+                  <div class="progress-bar bg-primary" style="width: <?= $user; ?>%"></div>
                 </div>
               </div>
               
               <div class="progress-group">
-                Complete Purchase
-                <span class="float-right"><b>310</b>/400</span>
+                Total Customer
+                <span class="float-right"><b><?= $pelanggan; ?></b></span>
                 <div class="progress progress-sm">
-                  <div class="progress-bar bg-danger" style="width: 75%"></div>
+                  <div class="progress-bar bg-danger" style="width: <?= $pelanggan; ?>%"></div>
                 </div>
               </div>
 
               <div class="progress-group">
-                <span class="progress-text">Visit Premium Page</span>
-                <span class="float-right"><b>480</b>/800</span>
+                Total Target
+                <span class="float-right"><b><?= $target; ?></b></span>
                 <div class="progress progress-sm">
-                  <div class="progress-bar bg-success" style="width: 60%"></div>
+                  <div class="progress-bar bg-success" style="width: <?= $target; ?>%"></div>
                 </div>
 			  </div>
-
-              <div class="progress-group">
-                Send Inquiries
-                <span class="float-right"><b>250</b>/500</span>
-                <div class="progress progress-sm">
-                  <div class="progress-bar bg-warning" style="width: 50%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-		
-		<div class="card-footer">
-          <div class="row">
-            <div class="col-sm-3 col-6">
-              <div class="description-block border-right">
-                <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
-                <h5 class="description-header">$35,210.43</h5>
-                <span class="description-text">TOTAL REVENUE</span>
-              </div>
-            </div>
-            <div class="col-sm-3 col-6">
-              <div class="description-block border-right">
-                <span class="description-percentage text-warning"><i class="fas fa-caret-left"></i> 0%</span>
-                <h5 class="description-header">$10,390.90</h5>
-                <span class="description-text">TOTAL COST</span>
-              </div>
-            </div>
-            <div class="col-sm-3 col-6">
-              <div class="description-block border-right">
-                <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 20%</span>
-                <h5 class="description-header">$24,813.53</h5>
-                <span class="description-text">TOTAL PROFIT</span>
-              </div>
-            </div>
-            <div class="col-sm-3 col-6">
-              <div class="description-block">
-                <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> 18%</span>
-                <h5 class="description-header">1200</h5>
-                <span class="description-text">GOAL COMPLETIONS</span>
-              </div>
             </div>
           </div>
         </div>
