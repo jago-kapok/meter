@@ -23,15 +23,15 @@
   <table id="example" class="table table-striped">
 	<thead class="bg-info">
       <tr>
-		<th class="col-md-1">#</th>
-        <th class="col-md-2">Reg. Number</th>
-        <th class="col-md-3">Customer Name</th>
-        <th class="col-md-4">Customer Address</th>
-        <th class="col-md-1">Capacity</th>
-        <th class="col-md-1">Rates</th>
-        <th class="col-md-1">Latitude</th>
-        <th class="col-md-1">Longitude</th>
-        <th class="col-md-1">Action</th>
+		<th>#</th>
+        <th class="w-25">Reg. Number</th>
+        <th class="w-25">Customer Name</th>
+        <th class="w-50">Customer Address</th>
+        <th class="w-25">Capacity</th>
+        <th class="w-25">Rates</th>
+        <th class="w-25">Latitude</th>
+        <th class="w-25">Longitude</th>
+        <th class="w-25">Action</th>
       </tr>
     </thead>
     <tbody>

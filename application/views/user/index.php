@@ -23,13 +23,13 @@
   <table id="example" class="table table-striped">
 	<thead class="bg-info">
       <tr>
-		<th class="col-md-1">#</th>
-        <th class="col-md-3">Full Name</th>
-        <th class="col-md-2">Username</th>
-        <th class="col-md-2">Password</th>
-        <th class="col-md-2">Email</th>
-        <th class="col-md-1">Level</th>
-        <th class="col-md-1">Action</th>
+		<th>#</th>
+        <th>Full Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>Level</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>

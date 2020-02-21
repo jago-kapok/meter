@@ -17,7 +17,11 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
+  
+  <!-- Maps -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css">
   
   <style>
     body { font-family: Arial; font-size:85% }
@@ -29,7 +33,7 @@
   </style>
 </head>
 
-<body class="hold-transition sidebar-mini sidebar-collapse layout-navbar-fixed">
+<body class="hold-transition sidebar-mini sidebar-collapse layout-navbar-fixed layout-fixed">
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav">

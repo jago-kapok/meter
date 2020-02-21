@@ -20,12 +20,13 @@
   <table id="example" class="table table-striped">
 	<thead class="bg-info">
       <tr>
-        <th class="col-md-2">Customer</th>
-        <th class="col-md-2">BA Number</th>
-        <th class="col-md-2">Additional Note</th>
-        <th class="col-md-2">BA Date</th>
-        <th class="col-md-2">Status</th>
-        <th class="col-md-1">Action</th>
+        <th>Customer</th>
+        <th>BA Number</th>
+        <th>Additional Note</th>
+		<th>Technician</th>
+        <th>BA Date</th>
+        <th>Status</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -35,10 +36,11 @@
           <td><?= $t['noreg_pelanggan']; ?> | <?= $t['nama_pelanggan']; ?></td>
           <td><?= $t['noba_target']; ?></td>
           <td><?= $t['ket_target']; ?></td>
+          <td><?= $t['nama_user']; ?></td>
           <?php if($t['tgl_ba'] == '0000-00-00 00:00:00') : ?>
 			<td></td>
 		  <?php else : ?>
-			<td><?= date('d-m-Y H:i:s', strtotime($t['tgl_ba'])); ?></td>
+			<td><?= date('d-m-Y', strtotime($t['tgl_ba'])); ?></td>
 		  <?php endif; ?>
 		  <?php if($t['id_status'] == 0) : ?>
 			<td><span class="badge badge-secondary">Not Visited</span></td>

@@ -35,6 +35,7 @@ class ModelMaster extends CI_Model
         $this->db->from('target');
         $this->db->join('pelanggan', 'pelanggan.id_pelanggan = target.id_pelanggan');
 		$this->db->join('user', 'user.id_user = target.id_user', 'left');
+		$this->db->where('target.id_status', '0');
         
 		return $this->db->get();
     }

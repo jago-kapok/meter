@@ -152,5 +152,18 @@
     )
   })
   </script>
+  
+  <script>
+	mapboxgl.accessToken = "pk.eyJ1Ijoia29sb25lbCIsImEiOiJjanNjMWc2enEwMGs5M3lwbmF2NXEwazV4In0.70IXd_Hc-X_o1jQt19J3lA";
+	var map = new mapboxgl.Map({
+		container: "map",
+		<!-- style: 'mapbox://styles/mapbox/streets-v11', -->
+		style: 'mapbox://styles/mapbox/outdoors-v11',
+		center: [<?= $target->lang_target; ?>, <?= $target->lat_target; ?>],
+		zoom: 15
+	});
+	new mapboxgl.Marker().setLngLat([<?= $target->lang_target; ?>, <?= $target->lat_target; ?>]).addTo(map);
+	map.addControl(new mapboxgl.NavigationControl());
+  </script>
 </body>
 </html>

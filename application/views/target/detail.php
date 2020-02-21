@@ -5,7 +5,11 @@
     </div>
     <div class="col-sm-6">
       <a href="javascript:void(0)" class="btn btn-primary btn-sm float-right ml-2">
-	    <i class="fa fa-file-download"></i>&nbsp;&nbsp;Download BA</a>
+	    <i class="fa fa-file-download"></i>&nbsp;&nbsp;Download BA
+	  </a>
+	  <a href="javascript:void(0)" class="btn btn-success btn-sm float-right ml-2" data-toggle="modal" data-target="#modal-view-document">
+	    <i class="fa fa-file-image"></i>&nbsp;&nbsp;View Documents
+	  </a>
     </div>
   </div>
 </div>
@@ -35,41 +39,41 @@
           <div class="card-body">
             <table class="table table-striped" style="font-size:95%">
 			  <tbody>
-				<tr>
+				<tr class="d-flex">
 				  <th class="col-md-3">Reg. Number</th>
-				  <td>: <?= $target->noreg_pelanggan; ?></td>
+				  <td class="col-md-9">: <?= $target->noreg_pelanggan; ?></td>
 				</tr>
-				<tr>
+				<tr class="d-flex">
 				  <th class="col-md-3">Customer Name</th>
-				  <td>: <?= $target->nama_pelanggan; ?></td>
+				  <td class="col-md-9">: <?= $target->nama_pelanggan; ?></td>
 				</tr>
-				<tr>
+				<tr class="d-flex">
 				  <th class="col-md-3">Created Date</th>
-				  <td>: <?= $target->tgl_create; ?></td>
+				  <td class="col-md-9">: <?= $target->tgl_create; ?></td>
 				</tr>
-				<tr>
+				<tr class="d-flex">
 				  <th class="col-md-3">BA Number</th>
-				  <td>: <?= $target->noba_target; ?></td>
+				  <td class="col-md-9">: <?= $target->noba_target; ?></td>
 				</tr>
-				<tr>
+				<tr class="d-flex">
 				  <th class="col-md-3">BA Created Date</th>
-				  <td>: <?= $target->tgl_ba; ?></td>
+				  <td class="col-md-9">: <?= $target->tgl_ba; ?></td>
 				</tr>
-				<tr>
+				<tr class="d-flex">
 				  <th class="col-md-3">Information</th>
-				  <td>: <?= $target->ket_target; ?></td>
+				  <td class="col-md-9">: <?= $target->ket_target; ?></td>
 				</tr>
-				<tr>
+				<tr class="d-flex">
 				  <th class="col-md-3">Technician</th>
-				  <td>: <?= $target->nama_user; ?></td>
+				  <td class="col-md-9">: <?= $target->nama_user; ?></td>
 				</tr>
-				<tr>
+				<tr class="d-flex">
 				  <th class="col-md-3">Latitude</th>
-				  <td>: <?= $target->lat_target; ?></td>
+				  <td class="col-md-9">: <?= $target->lat_target; ?></td>
 				</tr>
-				<tr>
+				<tr class="d-flex">
 				  <th class="col-md-3">Longitude</th>
-				  <td>: <?= $target->lat_target; ?></td>
+				  <td class="col-md-9">: <?= $target->lang_target; ?></td>
 				</tr>
 			  </tbody>
 			</table>
@@ -81,18 +85,52 @@
         <div class="card">
           <div class="card-header">
             <h5 class="card-title">
-			  View Document
+			  <i class="fa fa-map-marker-alt"></i>&nbsp;&nbsp;Target Location
 			</h5>
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fas fa-minus"></i></button>
             </div>
           </div>
-          <div class="card-body">
-            <center><img src="https://dpmptsp.sulselprov.go.id/assets/file/blank.png" width="500"></center>
+          <div class="card-body p-1">
+            <!--<center><img src="https://dpmptsp.sulselprov.go.id/assets/file/blank.png" width="500"></center>-->
+			<div id="map" style="position:relative; top:0; bottom:0; width:100%; height:430px"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="modal fade" id="modal-view-document">
+  <div class="modal-dialog modal-lg">
+	<div class="modal-content">
+	  <div class="modal-body">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width:auto">
+		  <ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		  </ol>
+
+		  <div class="carousel-inner">
+			<div class="carousel-item active">
+			  <center><embed src="https://dpmptsp.sulselprov.go.id/assets/file/blank.png" style="height:65vh"></center>
+			</div>
+			<div class="carousel-item">
+			  <center><embed src="https://dpmptsp.sulselprov.go.id/assets/file/blank.png" style="height:65vh"></center>
+			</div>
+		  </div>
+
+		  <a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		  </a>
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>

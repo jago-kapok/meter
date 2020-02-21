@@ -23,13 +23,13 @@
   <table id="example" class="table table-striped">
 	<thead class="bg-info">
       <tr>
-		<th class="col-md-1">#</th>
-        <th class="col-md-2">Customer</th>
-        <th class="col-md-2">BA Number</th>
-        <th class="col-md-2">Additional Note</th>
-        <th class="col-md-2">Technician</th>
-        <th class="col-md-2">BA Date</th>
-        <th class="col-md-1">Action</th>
+		<th>#</th>
+        <th>Customer</th>
+        <th>BA Number</th>
+        <th>Additional Note</th>
+        <th>Technician</th>
+        <th>BA Date</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -45,7 +45,7 @@
           <?php if($t['tgl_ba'] == '0000-00-00 00:00:00') : ?>
 			<td></td>
 		  <?php else : ?>
-			<td><?= date('d-m-Y H:i:s', strtotime($t['tgl_ba'])); ?></td>
+			<td><?= date('d-m-Y', strtotime($t['tgl_ba'])); ?></td>
 		  <?php endif; ?>
           <td>
 			<a href="javascript:void(0)" class="badge badge-warning p-1" title="Send to Technician" data-toggle="modal" data-target="#send_target"
