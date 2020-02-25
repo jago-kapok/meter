@@ -11,6 +11,7 @@
 
     <title>Meter Monitoring</title>
 
+	<link rel="icon" href="<?= base_url('assets/'); ?>dist/img/AdminLTELogo.png" />
     <!-- Custom css for this template-->
     <link href="<?= base_url('assets/'); ?>plugins/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url('assets/'); ?>dist/css/adminlte.min.css" rel="stylesheet" type="text/css">
@@ -20,4 +21,4 @@
 
 </head>
 
-<body class="bg-gradient-info"> 
+<body style="background: linear-gradient(to right, #44e0c8, #44b7e3)"> 

@@ -30,6 +30,7 @@
 	.btn-form { width: 100px }
 	.for-alert { color:#155724; background-color:#d4edda; border-color:#c3e6cb }
 	.nav-sidebar .nav-item > .nav-link { color: white }
+	[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link { color: #5a5a5a }
   </style>
 </head>
 
@@ -65,13 +66,13 @@
     </ul>
   </nav>
 
-  <aside class="main-sidebar sidebar-dark-primary elevation-4 bg-info">
-    <a href="javascript:void(0)" class="brand-link bg-info" style="border-bottom: 1px solid">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: linear-gradient(to right, #44e0c8, #44b7e3)">
+    <a href="javascript:void(0)" class="brand-link" style="border-bottom: 1px solid; background: linear-gradient(to right, #44e0c8, #44b7e3)">
       <img src="<?= base_url('assets/'); ?>dist/img/AdminLTELogo.png"
         alt="Meter Monitoring"
         class="brand-image img-circle elevation-3"
         style="opacity: .8">
-      <span class="brand-text font-weight-light">&nbsp;&nbsp;Meter Monitoring</span>
+      <span class="brand-text font-weight-light">&nbsp;&nbsp;inTEL</span>
     </a>
 	
 	<div class="sidebar">
@@ -118,30 +119,52 @@
               </li>
             </ul>
           </li>
-		  <li class="nav-item">
-            <a href="<?= base_url('target'); ?>" class="nav-link">
+		  <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-dot-circle"></i>
               <p>
                 &nbsp;&nbsp;Target Data
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('target'); ?>" class="nav-link">
+                  <i class="fas fa-angle-double-right nav-icon"></i>
+                  <p>&nbsp;&nbsp;P2TL</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('customer'); ?>" class="nav-link">
+                  <i class="fas fa-angle-double-right nav-icon"></i>
+                  <p>&nbsp;&nbsp;Harmet</p>
+                </a>
+              </li>
+            </ul>
           </li>
-		  <li class="nav-item">
-            <a href="<?= base_url('target/history'); ?>" class="nav-link">
+		  <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-history"></i>
               <p>
                 &nbsp;&nbsp;View History
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('target/history'); ?>" class="nav-link">
+                  <i class="fas fa-angle-double-right nav-icon"></i>
+                  <p>&nbsp;&nbsp;P2TL</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('customer'); ?>" class="nav-link">
+                  <i class="fas fa-angle-double-right nav-icon"></i>
+                  <p>&nbsp;&nbsp;Harmet</p>
+                </a>
+              </li>
+            </ul>
           </li>
-		  <!-- <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-calculator"></i>
-              <p>
-                &nbsp;&nbsp;Extra Count Table
-              </p>
-            </a>
-          </li>-->
 		  <li class="dropdown-divider"></li>
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

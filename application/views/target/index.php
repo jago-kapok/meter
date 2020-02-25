@@ -125,7 +125,7 @@
       <div class="modal-body">
 		<div class="form-group">
 		  <label>Customer</label>
-		  <input type="text" name="id_target" class="form-control form-control-sm">
+		  <input type="hidden" name="id_target" class="form-control form-control-sm">
 		  <select name="id_pelanggan" class="form-control form-control-sm">
             <option selected disabled>Choose Capacity</option>
             <?php

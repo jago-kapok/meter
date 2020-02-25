@@ -113,6 +113,7 @@
 		</div>
 	  </div>
       <div class="modal-footer">
+		<img src="<?= base_url('assets/'); ?>dist/img/AdminLTELogo__.png" class="mr-auto" width="115">
         <button type="button" class="btn btn-danger btn-sm btn-form" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary btn-sm btn-form">Save</button>
       </div>
@@ -166,6 +167,7 @@
 		</div>
 	  </div>
       <div class="modal-footer">
+		<img src="<?= base_url('assets/'); ?>dist/img/AdminLTELogo__.png" class="mr-auto" width="115">
         <button type="button" class="btn btn-danger btn-sm btn-form" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary btn-sm btn-form">Update</button>
       </div>
@@ -191,6 +193,7 @@
 		</div>
 	  </div>
       <div class="modal-footer">
+		<img src="<?= base_url('assets/'); ?>dist/img/AdminLTELogo__.png" class="mr-auto" width="115">
         <button type="button" class="btn btn-danger btn-sm btn-form" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary btn-sm btn-form">Process</button>
       </div>

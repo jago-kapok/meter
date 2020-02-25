@@ -13,7 +13,7 @@
 	  font-size: 15px;
 	  padding: 20px;
 	  font-family: "Times New Roman";
-	  background-color: #80CCFF;
+	  background-color: #28A745;
     }
     table.gridtable td {
 	  font-size: 15px;
@@ -29,30 +29,31 @@
   <center><h4><u>Export from Data Target</u></h4></center>
   <table border="1" class="gridtable">
     <thead>
-      <tr>
-        <th class="col-md-2">Reg. Number</th>
-        <th class="col-md-2">Customer Name</th>
-        <th class="col-md-2">BA Number</th>
-        <th class="col-md-2">Additional Note</th>
-        <th class="col-md-2">BA Date</th>
-        <th class="col-md-2">Technician</th>
-        <th class="col-md-2">Status</th>
+      <tr style="height:50px">
+        <th class="col-md-2">NO.</th>
+        <th class="col-md-2">IDPEL</th>
+        <th class="col-md-2">NAMA</th>
+        <th class="col-md-2">ALAMAT</th>
+        <th class="col-md-2">TARIF</th>
+        <th class="col-md-2">DAYA</th>
+        <th class="col-md-2">TEMUAN</th>
+        <th class="col-md-2">DESKRIPSI</th>
+        <th class="col-md-2">NO. BA</th>
+        <th class="col-md-2">TANGGAL BA</th>
+        <th class="col-md-2">PETUGAS</th>
       </tr>
     </thead>
     <tbody>
       <?php
+		$a = 1;
         foreach($target as $t) { ?>
         <tr>
+          <td><?= $a++; ?></td>
           <td><?= $t['noreg_pelanggan']; ?></td>
 		  <td><?= $t['nama_pelanggan']; ?></td>
-          <td><?= $t['noba_target']; ?></td>
-          <td><?= $t['ket_target']; ?></td>
-          <?php if($t['tgl_ba'] == '0000-00-00 00:00:00') : ?>
-			<td></td>
-		  <?php else : ?>
-			<td><?= date('d-m-Y H:i:s', strtotime($t['tgl_ba'])); ?></td>
-		  <?php endif; ?>
-		  <td><?= $t['nama_user']; ?></td>
+          <td><?= $t['alamat_pelanggan']; ?></td>
+          <td><?= $t['tarif']; ?></td>
+          <td><?= $t['daya']; ?></td>
 		  <?php if($t['id_status'] == 1) : ?>
 			<td><span class="badge badge-info">Visited</span></td>
 		  <?php elseif($t['id_status'] == 7) : ?>
@@ -62,6 +63,14 @@
 		  <?php else : ?>
 			<td><span class="badge badge-warning">Not Paid</span></td>
 		  <?php endif; ?>
+          <td><?= $t['noba_target']; ?></td>
+          <td><?= $t['ket_target']; ?></td>
+          <?php if($t['tgl_ba'] == '0000-00-00 00:00:00') : ?>
+			<td></td>
+		  <?php else : ?>
+			<td><?= date('d-m-Y H:i:s', strtotime($t['tgl_ba'])); ?></td>
+		  <?php endif; ?>
+		  <td><?= $t['nama_user']; ?></td>
         </tr>
       <?php } ?>
     </tbody>

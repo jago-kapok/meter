@@ -54,8 +54,13 @@
 			<td><span class="badge badge-warning">Not Paid</span></td>
 		  <?php endif; ?>
           <td>
-            <a href="detail/<?= $t['id_target']; ?>" class="badge badge-primary p-1" title="View Detail" target="_blank">
+            <a href="detail/<?= $t['id_target']; ?>" class="badge badge-primary p-1" title="View Detail">
 			  <i class="fas fa-asterisk"></i>
+		    </a>
+			<a href="javascript:void(0)" class="badge badge-info p-1" title="Edit Data" data-toggle="modal" data-target="#update_target"
+			  data-id_target="<?= $t['id_target']; ?>"
+			>
+			  <i class="fas fa-edit"></i>
 		    </a>
           </td>
         </tr>
@@ -100,6 +105,38 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm btn-form" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary btn-sm btn-form">Save</button>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="update_target" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title">Infraction Type</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+      </div>
+	  <form action="<?= base_url('target/update'); ?>" method="POST">
+      <div class="modal-body">
+		<div class="form-group">
+		  <label>Infraction Type</label>
+		  <input type="hidden" name="id_target" class="form-control form-control-sm">
+		  <select name="golongan_pelanggaran" class="form-control form-control-sm">
+            <option selected disabled>Choose Infraction Type</option>
+            <?php
+              foreach($golongan_pelanggaran as $p) { ?>
+			    <option value="<?= $p['golongan_pelanggaran']; ?>"><?= $p['golongan_pelanggaran']; ?></option>
+            <?php } ?>
+          </select>
+		</div>
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm btn-form" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary btn-sm btn-form">Submit</button>
       </div>
 	  </form>
     </div>

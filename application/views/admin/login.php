@@ -1,9 +1,9 @@
-<div class="container-fluid mt-5">
-  <div class="row">
+<div class="container-fluid">
+  <div class="container" style="margin-top:10%">
     <div class="col-md-4 offset-md-4">
-	  <div class="card card-secondary mt-5">
-        <div class="card-header">
-          <h3 class="card-title">Meter Monitoring - Login</h3>
+	  <div class="card">
+        <div class="card-header" style="background-color:lightblue">
+          <h3 class="card-title"><img src="<?= base_url('assets/'); ?>dist/img/AdminLTELogo__.png" class="mr-auto" width="115"></h3>
         </div>
         <form action="auth/login" method="POST">
           <div class="card-body">

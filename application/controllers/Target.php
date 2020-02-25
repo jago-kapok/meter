@@ -50,6 +50,7 @@ class Target extends CI_Controller
 		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
 		$data['user'] = $this->ModelMaster->getAll('user')->result_array();
 		$data['status'] = $this->ModelMaster->getAll('status')->result_array();
+		$data['golongan_pelanggaran'] = $this->ModelMaster->getAll('golongan_pelanggaran')->result_array();
 		
 		if($this->input->post('id_user') != ''){
 			if($id_user == '%'){
