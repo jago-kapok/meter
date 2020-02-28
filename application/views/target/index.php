@@ -13,7 +13,7 @@
 	  <div class="input-group">
 		<input id="searching" class="form-control form-control-sm" placeholder="Search Data ...">
 		<span class="input-group-append">
-		  <a href="<?= base_url('target/export') ?>" class="btn btn-success btn-sm"><i class="fa fa-file-download"></i>
+		  <a href="<?= base_url('target/export_visited') ?>" class="btn btn-success btn-sm"><i class="fa fa-file-download"></i>
 			&nbsp;&nbsp;Export Data
 		  </a>
 		</span>
@@ -24,9 +24,8 @@
 	<thead class="bg-info">
       <tr>
 		<th>#</th>
-        <th>Customer</th>
-        <th>BA Number</th>
-        <th>Additional Note</th>
+        <th>Reg. Number</th>
+        <th>Customer Name</th>
         <th>Technician</th>
         <th>BA Date</th>
         <th>Action</th>
@@ -38,9 +37,8 @@
         foreach($target as $t) { ?>
         <tr>
           <th scope="row"><?= $a++; ?></th>
-          <td><?= $t['noreg_pelanggan']; ?> | <?= $t['nama_pelanggan']; ?></td>
-          <td><?= $t['noba_target']; ?></td>
-          <td><?= $t['ket_target']; ?></td>
+          <td><?= $t['noreg_pelanggan']; ?></td>
+		  <td><?= $t['nama_pelanggan']; ?></td>
           <td><?= $t['nama_user']; ?></td>
           <?php if($t['tgl_ba'] == '0000-00-00 00:00:00') : ?>
 			<td></td>
@@ -56,7 +54,7 @@
 		    </a>
             <a href="javascript:void(0)" class="badge badge-info p-1" title="Edit Data" data-toggle="modal" data-target="#update_target"
 			  data-id_target="<?= $t['id_target']; ?>"
-			  data-id_pelanggan="<?= $t['id_pelanggan']; ?>"
+			  data-id_pelanggan="<?= $t['noreg_pelanggan']; ?>"
 			  data-id_status="<?= $t['id_status']; ?>"
 			>
 			  <i class="fas fa-edit"></i>

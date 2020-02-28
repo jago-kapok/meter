@@ -61,7 +61,7 @@ class Target extends CI_Controller
 				$user_name = $user->nama_user;
 			}
 			
-			$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Filter User : '.$user_name.' and Status : '.$status.'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+			$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Showing data '.$status.' from '.$user_name.' user.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		}
 
         $this->load->view('templates/header', $data);
@@ -114,8 +114,23 @@ class Target extends CI_Controller
 		$where = array('id_target' => $id_target);
 	 
 		$this->ModelMaster->edit('target', $where, $data);
-		$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Data for : '.$id_target.' was updated !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Data '.$id_target.' was updated !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('target');
+	}
+	
+	public function update_history()
+	{
+		$id_target = $this->input->post('id_target');
+		$golongan_pelanggaran = $this->input->post('golongan_pelanggaran');
+		
+		$data = array(
+			'golongan_pelanggaran' => $golongan_pelanggaran,
+		);
+		$where = array('id_target' => $id_target);
+	 
+		$this->ModelMaster->edit('target', $where, $data);
+		$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Data '.$id_target.' was updated !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('target/history');
 	}
 	
 	public function send()
@@ -129,7 +144,7 @@ class Target extends CI_Controller
 		$where = array('id_target' => $id_target);
 	 
 		$this->ModelMaster->edit('target', $where, $data);
-		$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Data for : '.$id_target.' was updated !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Data '.$id_target.' was updated !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('target');
 	}
 
@@ -140,7 +155,7 @@ class Target extends CI_Controller
 		$row = $query->row();
 		
         $this->ModelMaster->delete('target', $where);
-		$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Data for : '.$row->id_target.' was deleted !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Data '.$row->id_target.' was deleted !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('target');
     }
 	
@@ -185,8 +200,50 @@ class Target extends CI_Controller
 	
 	public function export()
     {
+		$where = "id_status != 1";
+		
         $data['title'] = 'Target Database';
-		$data['target'] = $this->ModelMaster->joinTargetUserPelanggan()->result_array();
+		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
+
+        $this->load->view('target/export', $data);
+    }
+	
+	public function export_visited()
+    {
+		$where = "id_status = 1";
+		
+        $data['title'] = 'Target Database';
+		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
+
+        $this->load->view('target/export', $data);
+    }
+	
+	public function export_not_paid()
+    {
+		$where = "id_status > 1 AND id_status < 7";
+		
+        $data['title'] = 'Target Database';
+		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
+
+        $this->load->view('target/export', $data);
+    }
+	
+	public function export_paid()
+    {
+		$where = "id_status = 7";
+		
+        $data['title'] = 'Target Database';
+		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
+
+        $this->load->view('target/export', $data);
+    }
+	
+	public function export_blocked()
+    {
+		$where = "id_status = 8";
+		
+        $data['title'] = 'Target Database';
+		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
 
         $this->load->view('target/export', $data);
     }

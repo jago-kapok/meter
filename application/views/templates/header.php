@@ -135,7 +135,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('customer'); ?>" class="nav-link">
+                <a href="<?= base_url('harmet'); ?>" class="nav-link">
                   <i class="fas fa-angle-double-right nav-icon"></i>
                   <p>&nbsp;&nbsp;Harmet</p>
                 </a>
@@ -158,7 +158,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('customer'); ?>" class="nav-link">
+                <a href="<?= base_url('harmet/history'); ?>" class="nav-link">
                   <i class="fas fa-angle-double-right nav-icon"></i>
                   <p>&nbsp;&nbsp;Harmet</p>
                 </a>

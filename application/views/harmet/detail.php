@@ -4,10 +4,7 @@
       <span class="btn"><strong>ID Target : <i><?= $target->id_target; ?></i></strong></span>
     </div>
     <div class="col-sm-6">
-      <a href="<?= base_url('mobile'); ?>/PdfUploadFolder/<?= $target->pdfURL; ?>" class="btn btn-primary btn-sm float-right ml-2">
-	    <i class="fa fa-file-download"></i>&nbsp;&nbsp;Download BA
-	  </a>
-	  <a href="javascript:void(0)" class="btn btn-success btn-sm float-right ml-2" data-toggle="modal" data-target="#modal-view-document">
+      <a href="javascript:void(0)" class="btn btn-success btn-sm float-right ml-2" data-toggle="modal" data-target="#modal-view-document">
 	    <i class="fa fa-file-image"></i>&nbsp;&nbsp;View Documents
 	  </a>
     </div>
@@ -89,16 +86,40 @@
         <div class="card">
           <div class="card-header">
             <h5 class="card-title">
-			  <i class="fa fa-map-marker-alt"></i>&nbsp;&nbsp;Target Location
+			  <i class="fa fa-recycle"></i>&nbsp;&nbsp;Detail Harmet
 			</h5>
             <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fas fa-minus"></i></button>
+              <a href="javascript:void(0)" class="badge badge-primary" style="font-size:95%" data-toggle="modal" data-target="#update_harmet"
+			    data-id_harmet="<?= empty($harmet->id_harmet) ? '0' : $harmet->id_harmet; ?>"
+			    data-id_target="<?= $target->id_target; ?>"
+			    data-merk_harmet="<?= empty($harmet->merk_harmet) ? '0' : $harmet->merk_harmet; ?>"
+			    data-no_meter_harmet="<?= empty($harmet->no_meter_harmet) ? '0' : $harmet->no_meter_harmet; ?>"
+			    data-tahun_harmet="<?= empty($harmet->tahun_harmet) ? '0' : $harmet->tahun_harmet; ?>"
+			    data-stan_harmet="<?= empty($harmet->stan_harmet) ? '0' : $harmet->stan_harmet; ?>"
+			  >Replace</a>
             </div>
           </div>
-          <div class="card-body p-1">
-            <!--<center><img src="https://dpmptsp.sulselprov.go.id/assets/file/blank.png" width="500"></center>-->
-			<div id="map" style="position:relative; top:0; bottom:0; width:100%; height:430px"></div>
+          <div class="card-body">
+			<table class="table table-striped" style="font-size:95%">
+			  <tbody>
+				<tr class="d-flex">
+				  <th class="col-md-3">Merk Harmet</th>
+				  <td class="col-md-9">: <?= empty($harmet->merk_harmet) ? '-' : $harmet->merk_harmet; ?></td>
+				</tr>
+				<tr class="d-flex">
+				  <th class="col-md-3">Meter ID</th>
+				  <td class="col-md-9">: <?= empty($harmet->no_meter_harmet) ? '-' : $harmet->no_meter_harmet; ?></td>
+				</tr>
+				<tr class="d-flex">
+				  <th class="col-md-3">Produced on</th>
+				  <td class="col-md-9">: <?= empty($harmet->tahun_harmet) ? '-' : $harmet->tahun_harmet; ?></td>
+				</tr>
+				<tr class="d-flex">
+				  <th class="col-md-3">Stand Location</th>
+				  <td class="col-md-9">: <?= empty($harmet->stan_harmet) ? '-' : $harmet->stan_harmet; ?></td>
+				</tr>
+			  </tbody>
+			</table>
           </div>
         </div>
       </div>
@@ -118,10 +139,7 @@
 
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
-			  <center><embed src="<?= empty($target->dok_target) ? 'https://dpmptsp.sulselprov.go.id/assets/file/blank.png' : '../../mobile/document/'.$target->dok_target; ?>" style="height:65vh"></center>
-			</div>
-			<div class="carousel-item">
-			  <center><embed src="<?= empty($target->dok_target) ? 'https://dpmptsp.sulselprov.go.id/assets/file/blank.png' : '../../mobile/document/'.$target->dok_target2; ?>" style="height:65vh"></center>
+			  <center><embed src="https://dpmptsp.sulselprov.go.id/assets/file/blank.png" style="height:65vh"></center>
 			</div>
 		  </div>
 
@@ -136,5 +154,44 @@
 		</div>
 	  </div>
 	</div>
+  </div>
+</div>
+
+<div class="modal fade" id="update_harmet" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title">Replace Harmet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+      </div>
+	  <form action="<?= base_url('harmet/update'); ?>" method="POST">
+      <div class="modal-body">
+	    <input type="hidden" name="id_harmet" class="form-control form-control-sm">
+		<input type="hidden" name="id_target" class="form-control form-control-sm">
+		<div class="form-group">
+		  <label>Merk Harmet</label>
+		  <input id="merk_harmet" name="merk_harmet" class="form-control form-control-sm">
+		</div>
+		<div class="form-group">
+		  <label>Meter ID</label>
+		  <input id="no_meter_harmet" name="no_meter_harmet" class="form-control form-control-sm">
+		</div>
+		<div class="form-group">
+		  <label>Produced on</label>
+		  <input id="tahun_harmet" name="tahun_harmet" class="form-control form-control-sm">
+		</div>
+		<div class="form-group">
+		  <label>Stand Location</label>
+		  <input id="stan_harmet" name="stan_harmet" class="form-control form-control-sm">
+		</div>
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm btn-form" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary btn-sm btn-form">Process</button>
+      </div>
+	  </form>
+    </div>
   </div>
 </div>

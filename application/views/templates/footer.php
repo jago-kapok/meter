@@ -102,6 +102,25 @@
 	  modal.find('.modal-body input[name=id_target]').val(id_target);
 	  modal.find('.modal-body select[name=id_user]').val(id_user);
 	});
+	
+	// Menangkap data harmet dari modal
+	$('#update_harmet').on('show.bs.modal', function(event){
+	  var button = $(event.relatedTarget);
+	  var id_harmet = button.data('id_harmet');
+	  var id_target = button.data('id_target');
+	  var merk_harmet = button.data('merk_harmet');
+	  var no_meter_harmet = button.data('no_meter_harmet');
+	  var tahun_harmet = button.data('tahun_harmet');
+	  var stan_harmet = button.data('stan_harmet');
+	  
+	  var modal = $(this);
+	  modal.find('.modal-body input[name=id_harmet]').val(id_harmet);
+	  modal.find('.modal-body input[name=id_target]').val(id_target);
+	  modal.find('.modal-body #merk_harmet').val(merk_harmet);
+	  modal.find('.modal-body #no_meter_harmet').val(no_meter_harmet);
+	  modal.find('.modal-body #tahun_harmet').val(tahun_harmet);
+	  modal.find('.modal-body #stan_harmet').val(stan_harmet);
+	});
   </script>
   
   <script>

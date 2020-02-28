@@ -57,3 +57,4 @@ $route['auth'] = 'auth';
 $route['user'] = 'user';
 $route['customer'] = 'customer';
 $route['target'] = 'target';
+$route['harmet'] = 'harmet';

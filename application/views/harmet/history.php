@@ -10,7 +10,7 @@
 	  <div class="input-group">
 		<input id="searching" class="form-control form-control-sm" placeholder="Search Data ...">
 		<span class="input-group-append">
-		  <a href="<?= base_url('target/export') ?>" class="btn btn-success btn-sm"><i class="fa fa-file-download"></i>
+		  <a href="<?= base_url('harmet/export') ?>" class="btn btn-success btn-sm"><i class="fa fa-file-download"></i>
 			&nbsp;&nbsp;Export Data
 		  </a>
 		</span>
@@ -24,7 +24,7 @@
         <th>BA Number</th>
         <th>Additional Note</th>
 		<th>Infraction</th>
-        <th>BA Date</th>        
+        <th>BA Date</th>
 		<th>Technician</th>
         <th>Status</th>
         <th>Action</th>
@@ -37,7 +37,7 @@
           <td><?= $t['noreg_pelanggan']; ?> | <?= $t['nama_pelanggan']; ?></td>
           <td><?= $t['noba_target']; ?></td>
           <td><?= $t['ket_target']; ?></td>
-		  <td><?= $t['golongan_pelanggaran']; ?></td>
+          <td><?= $t['golongan_pelanggaran']; ?></td>
           <?php if($t['tgl_ba'] == '0000-00-00 00:00:00') : ?>
 			<td></td>
 		  <?php else : ?>
@@ -56,14 +56,8 @@
 			<td><span class="badge badge-warning">Not Paid</span></td>
 		  <?php endif; ?>
           <td>
-            <a href="detail/<?= $t['id_target']; ?>" class="badge badge-primary p-1" title="View Detail">
-			  <i class="fas fa-asterisk"></i>
-		    </a>
-			<a href="javascript:void(0)" class="badge badge-info p-1" title="Edit Data" data-toggle="modal" data-target="#update_target"
-			  data-id_target="<?= $t['id_target']; ?>"
-			  data-id_pelanggan="<?= $t['noreg_pelanggan']; ?>"
-			>
-			  <i class="fas fa-edit"></i>
+            <a href="<?= base_url('harmet/detail/').$t['id_target']; ?>" class="badge badge-primary p-1" title="View Detail">
+			  <i class="fas fa-recycle"></i>
 		    </a>
           </td>
         </tr>
@@ -123,7 +117,7 @@
           <span>&times;</span>
         </button>
       </div>
-	  <form action="<?= base_url('target/update_history'); ?>" method="POST">
+	  <form action="<?= base_url('target/update'); ?>" method="POST">
       <div class="modal-body">
 		<div class="form-group">
 		  <label>Infraction Type</label>

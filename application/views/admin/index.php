@@ -6,6 +6,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Target - Visited</span>
+		  <a href="<?= base_url('target/export_visited'); ?>" style="float:right; margin-top:-20px"><i class="fa fa-file-download"></i></a>
           <span class="info-box-number" style="font-size:20px"><?= $visited; ?></span>
         </div>
       </div>
@@ -16,6 +17,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Target - Not Paid</span>
+		  <a href="<?= base_url('target/export_not_paid'); ?>" style="float:right; margin-top:-20px"><i class="fa fa-file-download"></i></a>
           <span class="info-box-number" style="font-size:20px"><?= $not_paid; ?></span>
         </div>
       </div>
@@ -29,6 +31,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Target - Paid</span>
+		  <a href="<?= base_url('target/export_paid'); ?>" style="float:right; margin-top:-20px"><i class="fa fa-file-download"></i></a>
           <span class="info-box-number" style="font-size:20px"><?= $paid; ?></span>
         </div>
       </div>
@@ -39,6 +42,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Target - Blocked</span>
+		  <a href="<?= base_url('target/export_blocked'); ?>" style="float:right; margin-top:-20px"><i class="fa fa-file-download"></i></a>
           <span class="info-box-number" style="font-size:20px"><?= $blocked; ?></span>
         </div>
       </div>
