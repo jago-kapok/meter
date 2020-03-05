@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Meter Monitoring</title>
+    <title>Monitoring P2TL &amp; Harmet</title>
 
 	<link rel="icon" href="<?= base_url('assets/'); ?>dist/img/AdminLTELogo.png" />
     <!-- Custom css for this template-->

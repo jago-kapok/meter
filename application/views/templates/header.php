@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Meter Monitoring</title>
+  <title>Monitoring P2TL &amp; Harmet</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -67,7 +67,7 @@
   </nav>
 
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: linear-gradient(to right, #44e0c8, #44b7e3)">
-    <a href="javascript:void(0)" class="brand-link" style="border-bottom: 1px solid; background: linear-gradient(to right, #44e0c8, #44b7e3)">
+    <a href="javascript:void(0)" class="brand-link" style="border-bottom: 1px solid; background-color: grey">
       <img src="<?= base_url('assets/'); ?>dist/img/AdminLTELogo.png"
         alt="Meter Monitoring"
         class="brand-image img-circle elevation-3"

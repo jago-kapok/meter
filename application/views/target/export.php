@@ -36,7 +36,7 @@
         <th class="col-md-2">ALAMAT</th>
         <th class="col-md-2">TARIF</th>
         <th class="col-md-2">DAYA</th>
-        <th class="col-md-2">TEMUAN</th>
+        <th class="col-md-2">GOL. PELANGGARAN</th>
         <th class="col-md-2">DESKRIPSI</th>
         <th class="col-md-2">NO. BA</th>
         <th class="col-md-2">TANGGAL BA</th>

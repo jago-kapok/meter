@@ -22,7 +22,8 @@
       <tr>
         <th>Customer</th>
         <th>BA Number</th>
-        <th>Additional Note</th>
+        <th>Information</th>
+		<th>Action</th>
 		<th>Infraction</th>
         <th>BA Date</th>
 		<th>Technician</th>
@@ -37,6 +38,7 @@
           <td><?= $t['noreg_pelanggan']; ?> | <?= $t['nama_pelanggan']; ?></td>
           <td><?= $t['noba_target']; ?></td>
           <td><?= $t['ket_target']; ?></td>
+          <td><?= $t['tindakan']; ?></td>
           <td><?= $t['golongan_pelanggaran']; ?></td>
           <?php if($t['tgl_ba'] == '0000-00-00 00:00:00') : ?>
 			<td></td>

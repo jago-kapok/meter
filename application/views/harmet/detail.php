@@ -57,8 +57,12 @@
 				  <td class="col-md-9">: <?= $target->tgl_ba; ?></td>
 				</tr>
 				<tr class="d-flex">
-				  <th class="col-md-3">Information</th>
+				  <th class="col-md-3" style="vertical-align:middle">Information</th>
 				  <td class="col-md-9">: <?= $target->ket_target; ?></td>
+				</tr>
+				<tr class="d-flex">
+				  <th class="col-md-3" style="vertical-align:middle">Action</th>
+				  <td class="col-md-9">: <?= $target->tindakan; ?></td>
 				</tr>
 				<tr class="d-flex">
 				  <th class="col-md-3">Infraction</th>
