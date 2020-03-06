@@ -121,6 +121,39 @@
 	  modal.find('.modal-body #tahun_harmet').val(tahun_harmet);
 	  modal.find('.modal-body #stan_harmet').val(stan_harmet);
 	});
+	
+	// Mengambil data JSON dari tabel customer berdasar id
+	$('select[name=id_pelanggan]').change(function(){
+	  if(this.value == 'New'){
+		$('input[name=nama_pelanggan]').val('');
+		$('input[name=alamat_pelanggan]').val('');
+		$('input[name=nama_pelanggan]').attr('disabled', false);
+	    $('input[name=alamat_pelanggan]').attr('disabled', false);
+	  } else {
+		$('input[name=nama_pelanggan]').val('');
+		$('input[name=alamat_pelanggan]').val('');
+		$('input[name=nama_pelanggan]').attr('disabled', false);
+		$('input[name=alamat_pelanggan]').attr('disabled', false);
+		  
+		$.getJSON("customer/data/" + this.value, function(data){
+		  $.each(data, function(key, value){
+			$('input[name=nama_pelanggan]').val(value.nama_pelanggan);
+			$('input[name=alamat_pelanggan]').val(value.alamat_pelanggan);
+			$('input[name=nama_pelanggan]').attr('disabled', true);
+			$('input[name=alamat_pelanggan]').attr('disabled', true);
+		  });
+		});
+	  }
+	});
+	
+	// Disable dropdown id_pelanggan
+	$('input[name=nama_pelanggan]').keyup(function(){
+	  if(this.value == ''){
+		$('select[name=id_pelanggan]').attr('disabled', false);
+	  } else {
+		$('select[name=id_pelanggan]').attr('disabled', true);
+	  }
+	});
   </script>
   
   <script>

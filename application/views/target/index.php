@@ -26,8 +26,8 @@
 		<th>#</th>
         <th>Reg. Number</th>
         <th>Customer Name</th>
+        <th>Address</th>
         <th>Technician</th>
-        <th>BA Date</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -39,12 +39,8 @@
           <th scope="row"><?= $a++; ?></th>
           <td><?= $t['noreg_pelanggan']; ?></td>
 		  <td><?= $t['nama_pelanggan']; ?></td>
+		  <td><?= $t['alamat_pelanggan']; ?></td>
           <td><?= $t['nama_user']; ?></td>
-          <?php if($t['tgl_ba'] == '0000-00-00 00:00:00') : ?>
-			<td></td>
-		  <?php else : ?>
-			<td><?= date('d-m-Y', strtotime($t['tgl_ba'])); ?></td>
-		  <?php endif; ?>
           <td>
 			<a href="javascript:void(0)" class="badge badge-warning p-1" title="Send to Technician" data-toggle="modal" data-target="#send_target"
 			  data-id_target="<?= $t['id_target']; ?>"
@@ -52,13 +48,13 @@
 			>
 			  <i class="fas fa-user"></i>
 		    </a>
-            <a href="javascript:void(0)" class="badge badge-info p-1" title="Edit Data" data-toggle="modal" data-target="#update_target"
-			  data-id_target="<?= $t['id_target']; ?>"
-			  data-id_pelanggan="<?= $t['noreg_pelanggan']; ?>"
-			  data-id_status="<?= $t['id_status']; ?>"
+            <!-- <a href="javascript:void(0)" class="badge badge-info p-1" title="Edit Data" data-toggle="modal" data-target="#update_target"
+			  data-id_target="<= $t['id_target']; ?>"
+			  data-id_pelanggan="<= $t['noreg_pelanggan']; ?>"
+			  data-id_status="<= $t['id_status']; ?>"
 			>
 			  <i class="fas fa-edit"></i>
-		    </a>
+		    </a> -->
             <a href="<?= base_url('target/delete/').$t['id_target']; ?>" class="badge badge-danger p-1" title="Delete Data" onclick="return confirm('Are you sure to delete this ?')">
 			  <i class="fas fa-trash"></i>
 		    </a>
@@ -78,27 +74,29 @@
           <span>&times;</span>
         </button>
       </div>
-	  <form action="<?= base_url('target/create'); ?>" method="POST">
+	  <form action="<?= base_url('target/create'); ?>" method="POST" enctype="multipart/form-data">
       <div class="modal-body">
 		<div class="form-group">
-		  <label>Customer</label>
+		  <label>Reg. Number</label>
 		  <select name="id_pelanggan" class="form-control form-control-sm">
-            <option selected disabled>Choose Customer</option>
-            <?php
-              foreach($customer as $c) { ?>
+			<option value="New" selected>New Customer</option>
+			<?php
+			  foreach($customer as $c) { ?>
 				<option value="<?= $c['id_pelanggan']; ?>"><?= $c['noreg_pelanggan']; ?> | <?= $c['nama_pelanggan']; ?></option>
-            <?php } ?>
-          </select>
+			<?php } ?>
+		  </select>
 		</div>
 		<div class="form-group">
-		  <label>Status</label>
-		  <select name="id_status" class="form-control form-control-sm">
-            <option selected disabled>Choose Status</option>
-            <?php
-              foreach($status as $s) { ?>
-				<option value="<?= $s['id_status']; ?>"><?= $s['ket_status']; ?></option>
-            <?php } ?>
-          </select>
+		  <label>Customer</label>
+		  <input name="nama_pelanggan" class="form-control form-control-sm">
+		</div>
+		<div class="form-group">
+		  <label>Address</label>
+		  <input name="alamat_pelanggan" class="form-control form-control-sm">
+		</div>
+		<div class="form-group">
+		  <label>Upload Image</label>
+		  <input type="file" name="dok_to" class="form-control form-control-sm">
 		</div>
 	  </div>
       <div class="modal-footer">
@@ -129,16 +127,6 @@
             <?php
               foreach($customer as $c) { ?>
 			    <option value="<?= $c['id_pelanggan']; ?>"><?= $c['noreg_pelanggan']; ?> | <?= $c['nama_pelanggan']; ?></option>
-            <?php } ?>
-          </select>
-		</div>
-		<div class="form-group">
-		  <label>Status</label>
-		  <select name="id_status" class="form-control form-control-sm">
-            <option selected disabled>Choose Status</option>
-            <?php
-              foreach($status as $s) { ?>
-				<option value="<?= $s['id_status']; ?>"><?= $s['ket_status']; ?></option>
             <?php } ?>
           </select>
 		</div>

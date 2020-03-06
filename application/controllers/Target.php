@@ -84,13 +84,34 @@ class Target extends CI_Controller
 	
 	public function create()
 	{
-		$id_pelanggan = $this->input->post('id_pelanggan');
-		$id_status = $this->input->post('id_status');
 		$tgl_create = date("Y-m-d H:i:s");
+		
+		if($this->input->post('nama_pelanggan')){
+			$nama_pelanggan = $this->input->post('nama_pelanggan');
+			$alamat_pelanggan = $this->input->post('alamat_pelanggan');
+			
+			$data_customer = array(
+				'nama_pelanggan' => $nama_pelanggan,
+				'alamat_pelanggan' => $alamat_pelanggan,
+			);
+		
+			$this->ModelMaster->add('pelanggan', $data_customer);
+		}
+		
+		$id_pelanggan = $this->input->post('id_pelanggan') === NULL ? $this->db->insert_id() : $this->input->post('id_pelanggan');
+		
+		// Fungsi upload file
+		$config['upload_path']		= './mobile/target/';
+		$config['allowed_types']	= 'gif|jpg|png';
+		$config['file_name']		= mt_rand();
+ 
+		$this->load->library('upload', $config);
+		$this->upload->do_upload('dok_to');
+		// Fungsi upload file
 		
 		$data = array(
 			'id_pelanggan' => $id_pelanggan,
-			'id_status' => $id_status,
+			'dok_to' => $config['file_name'].'.'.pathinfo($_FILES['dok_to']['name'], PATHINFO_EXTENSION),
 			'tgl_create' => $tgl_create,
 		);
 		

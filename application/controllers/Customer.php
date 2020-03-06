@@ -21,6 +21,21 @@ class Customer extends CI_Controller
         $this->load->view('templates/footer');
     }
 	
+	public function data()
+    {
+		$id_pelanggan = $this->uri->segment(3);
+		$customer = $this->ModelMaster->getBy('pelanggan', array('id_pelanggan'=>$id_pelanggan))->result_array();
+		
+		foreach($customer as $data){
+			$output[] = array(
+				"nama_pelanggan" => $data['nama_pelanggan'],
+				"alamat_pelanggan" => $data['alamat_pelanggan']
+			);
+		}
+		
+		echo json_encode($output);
+    }
+	
 	public function create()
 	{
 		$noreg_pelanggan = $this->input->post('noreg_pelanggan');

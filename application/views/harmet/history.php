@@ -22,7 +22,7 @@
       <tr>
         <th>Customer</th>
         <th>BA Number</th>
-        <th>Information</th>
+        <th>Description</th>
 		<th>Action</th>
 		<th>Infraction</th>
         <th>BA Date</th>

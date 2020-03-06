@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="row mb-2">
 	<div class="col-sm-6">
-      <span class="btn"><strong>ID Target : <i><?= $target->id_target; ?></i></strong></span>
+      <span class="btn"><strong>Reg. Number : <i><?= $target->noreg_pelanggan; ?></i></strong></span>
     </div>
     <div class="col-sm-6">
       <a href="<?= base_url('mobile'); ?>/PdfUploadFolder/<?= $target->pdfURL; ?>" class="btn btn-primary btn-sm float-right ml-2">
 	    <i class="fa fa-file-download"></i>&nbsp;&nbsp;Download BA
 	  </a>
 	  <a href="javascript:void(0)" class="btn btn-success btn-sm float-right ml-2" data-toggle="modal" data-target="#modal-view-document">
-	    <i class="fa fa-file-image"></i>&nbsp;&nbsp;View Documents
+	    <i class="fa fa-file-image"></i>&nbsp;&nbsp;View Photos
 	  </a>
     </div>
   </div>
@@ -40,10 +40,6 @@
             <table class="table table-striped" style="font-size:95%">
 			  <tbody>
 				<tr class="d-flex">
-				  <th class="col-md-3">Reg. Number</th>
-				  <td class="col-md-9">: <?= $target->noreg_pelanggan; ?></td>
-				</tr>
-				<tr class="d-flex">
 				  <th class="col-md-3">Customer Name</th>
 				  <td class="col-md-9">: <?= $target->nama_pelanggan; ?></td>
 				</tr>
@@ -60,7 +56,7 @@
 				  <td class="col-md-9">: <?= $target->tgl_ba; ?></td>
 				</tr>
 				<tr class="d-flex">
-				  <th class="col-md-3" style="vertical-align:middle">Information</th>
+				  <th class="col-md-3" style="vertical-align:middle">Description</th>
 				  <td class="col-md-9">: <?= $target->ket_target; ?></td>
 				</tr>
 				<tr class="d-flex">
@@ -130,11 +126,11 @@
 		  </div>
 
 		  <a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="carousel-control-prev-icon" aria-hidden="true" style="color:grey"></span>
 			<span class="sr-only">Previous</span>
 		  </a>
 		  <a class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="carousel-control-next-icon" aria-hidden="true" style="color:grey"></span>
 			<span class="sr-only">Next</span>
 		  </a>
 		</div>

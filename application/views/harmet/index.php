@@ -19,8 +19,8 @@
 		<th>#</th>
         <th>Reg. Number</th>
         <th>Customer Name</th>
+        <th>Address</th>
         <th>Technician</th>
-        <th>BA Date</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -32,12 +32,8 @@
           <th scope="row"><?= $a++; ?></th>
           <td><?= $t['noreg_pelanggan']; ?></td>
 		  <td><?= $t['nama_pelanggan']; ?></td>
+		  <td><?= $t['alamat_pelanggan']; ?></td>
           <td><?= $t['nama_user']; ?></td>
-          <?php if($t['tgl_ba'] == '0000-00-00 00:00:00') : ?>
-			<td></td>
-		  <?php else : ?>
-			<td><?= date('d-m-Y', strtotime($t['tgl_ba'])); ?></td>
-		  <?php endif; ?>
           <td>
             <a href="<?= base_url('harmet/detail/').$t['id_target']; ?>" class="badge badge-primary p-1" title="View Detail">
 			  <i class="fas fa-recycle"></i>
