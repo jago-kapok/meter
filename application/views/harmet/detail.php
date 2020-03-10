@@ -139,7 +139,7 @@
 
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
-			  <center><embed src="https://dpmptsp.sulselprov.go.id/assets/file/blank.png" style="height:65vh"></center>
+			  <center><img src="https://dpmptsp.sulselprov.go.id/assets/file/blank.png" style="height:65vh"></center>
 			</div>
 		  </div>
 

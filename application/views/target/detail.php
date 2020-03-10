@@ -118,19 +118,19 @@
 
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
-			  <center><embed src="<?= empty($target->dok_target) ? 'https://dpmptsp.sulselprov.go.id/assets/file/blank.png' : '../../mobile/document/'.$target->dok_target; ?>" style="height:65vh"></center>
+			  <center><img src="<?= empty($target->dok_target) ? 'https://dpmptsp.sulselprov.go.id/assets/file/blank.png' : '../../mobile/document/'.$target->dok_target; ?>" style="height:65vh"></center>
 			</div>
 			<div class="carousel-item">
-			  <center><embed src="<?= empty($target->dok_target) ? 'https://dpmptsp.sulselprov.go.id/assets/file/blank.png' : '../../mobile/document/'.$target->dok_target2; ?>" style="height:65vh"></center>
+			  <center><img src="<?= empty($target->dok_target2) ? 'https://dpmptsp.sulselprov.go.id/assets/file/blank.png' : '../../mobile/document/'.$target->dok_target2; ?>" style="height:65vh"></center>
 			</div>
 		  </div>
 
 		  <a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true" style="color:grey"></span>
+			<span class="carousel-control-prev-icon" aria-hidden="true" style="background-color:grey"></span>
 			<span class="sr-only">Previous</span>
 		  </a>
 		  <a class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true" style="color:grey"></span>
+			<span class="carousel-control-next-icon" aria-hidden="true" style="background-color:grey"></span>
 			<span class="sr-only">Next</span>
 		  </a>
 		</div>

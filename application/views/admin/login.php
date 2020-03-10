@@ -14,7 +14,7 @@
 			<?= $this->session->flashdata('message'); ?>
             <div class="form-group">
               <label class="text-secondary">Username</label>
-              <input type="text" name="username" class="form-control" placeholder="Enter Username" autofocus>
+              <input type="text" name="username" class="form-control" placeholder="Enter Username">
             </div>
             <div class="form-group">
               <label class="text-secondary">Password</label>

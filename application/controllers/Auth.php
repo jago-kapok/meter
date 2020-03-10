@@ -31,16 +31,18 @@ class Auth extends CI_Controller
 			$data_session = array(
 				'id' => $data_user->id_user,
 				'fullname' => $data_user->nama_user,
+				'id_level' => $data_user->id_level,
 				'level' => $user_level,
 				'username' => $username,
-				'status' => "login"
+				'email' => $data_user->email_user,
+				'phone' => $data_user->telp_user
 			);
  
 			$this->session->set_userdata($data_session);
  
 			redirect(base_url(""));
 		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">Please check your username and password !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">Wrong username or password !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 			
 			redirect(base_url("auth"));
 		}
@@ -54,5 +56,3 @@ class Auth extends CI_Controller
 		redirect(base_url("auth"));
 	}
 }
-
- 

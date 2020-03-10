@@ -55,7 +55,14 @@
         <div class="dropdown-menu dropdown-menu-right">
           <span class="dropdown-item dropdown-header">User's Menu</span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#update_user"
+		    data-id_user="<?= $this->session->userdata('id'); ?>"
+			data-nama_user="<?= $this->session->userdata('fullname'); ?>"
+			data-username="<?= $this->session->userdata('username'); ?>"
+			data-password="<?= $this->session->userdata('password'); ?>"
+			data-email_user="<?= $this->session->userdata('email'); ?>"
+			data-telp_user="<?= $this->session->userdata('phone'); ?>"
+		  >
             <i class="fas fa-user-cog mr-2"></i> Profile
           </a>
           <div class="dropdown-divider"></div>
@@ -193,6 +200,53 @@
 	  </nav>
 	</div>
   </aside>
+  
+  <div class="modal fade" id="update_user" role="dialog">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header bg-info">
+			<h5 class="modal-title"><span>Update Profile</span></h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span>&times;</span>
+			</button>
+		  </div>
+		  <form action="<?= base_url('user/update'); ?>" method="POST">
+		  <div class="modal-body">
+			<div class="form-group">
+			  <label>Full Name</label>
+			  <input type="hidden" name="id_user" class="form-control form-control-sm">
+			  <input name="nama_user" class="form-control form-control-sm">
+			</div>
+			<div class="form-row">
+			  <div class="form-group col-md-6">
+				<label>Username <span class="text-danger">*</span></label>
+				<input name="username" class="form-control form-control-sm" readonly>
+			  </div>
+			  <div class="form-group col-md-6">
+				<label>New Password <span class="text-danger">*</span></label>
+				<input type="password" name="password" class="form-control form-control-sm" required>
+			  </div>
+			</div>
+			<div class="form-row">
+			  <div class="form-group col-md-6">
+				<label>Email Address</label>
+				<input type="email" name="email_user" class="form-control form-control-sm">
+			  </div>
+			  <div class="form-group col-md-6">
+				<label>Phone Number</label>
+				<input type="tel" name="telp_user" class="form-control form-control-sm">
+			  </div>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<img src="<?= base_url('assets/'); ?>dist/img/AdminLTELogo__.png" class="mr-auto" width="115">
+			<button type="button" class="btn btn-danger btn-sm btn-form" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary btn-sm btn-form">Update</button>
+		  </div>
+		  </form>
+		</div>
+	  </div>
+	</div>
   
   <div class="content-wrapper">
     <section class="content p-2">

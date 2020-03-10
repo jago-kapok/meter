@@ -102,7 +102,7 @@ class Target extends CI_Controller
 		
 		// Fungsi upload file
 		$config['upload_path']		= './mobile/target/';
-		$config['allowed_types']	= 'gif|jpg|png';
+		$config['allowed_types']	= 'gif|jpg|png|jpeg';
 		$config['file_name']		= mt_rand();
  
 		$this->load->library('upload', $config);

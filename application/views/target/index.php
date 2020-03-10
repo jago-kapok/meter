@@ -27,6 +27,7 @@
         <th>Reg. Number</th>
         <th>Customer Name</th>
         <th>Address</th>
+        <th>Document</th>
         <th>Technician</th>
         <th>Action</th>
       </tr>
@@ -40,6 +41,7 @@
           <td><?= $t['noreg_pelanggan']; ?></td>
 		  <td><?= $t['nama_pelanggan']; ?></td>
 		  <td><?= $t['alamat_pelanggan']; ?></td>
+		  <td><a href="./mobile/target/<?= $t['dok_to']; ?>" target="_blank"><?= $t['dok_to']; ?></a></td>
           <td><?= $t['nama_user']; ?></td>
           <td>
 			<a href="javascript:void(0)" class="badge badge-warning p-1" title="Send to Technician" data-toggle="modal" data-target="#send_target"

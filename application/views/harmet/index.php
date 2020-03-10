@@ -20,6 +20,7 @@
         <th>Reg. Number</th>
         <th>Customer Name</th>
         <th>Address</th>
+        <th>Document</th>
         <th>Technician</th>
         <th>Action</th>
       </tr>
@@ -33,6 +34,7 @@
           <td><?= $t['noreg_pelanggan']; ?></td>
 		  <td><?= $t['nama_pelanggan']; ?></td>
 		  <td><?= $t['alamat_pelanggan']; ?></td>
+		  <td><a href="./mobile/target/<?= $t['dok_to']; ?>" target="_blank"><?= $t['dok_to']; ?></a></td>
           <td><?= $t['nama_user']; ?></td>
           <td>
             <a href="<?= base_url('harmet/detail/').$t['id_target']; ?>" class="badge badge-primary p-1" title="View Detail">
