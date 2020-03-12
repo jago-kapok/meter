@@ -5,9 +5,6 @@
 	  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create_target"><i class="fa fa-plus-square"></i>
 	    &nbsp;&nbsp;Insert Target
 	  </button>
-	  <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#import_target"><i class="fa fa-file-import"></i>
-	    &nbsp;&nbsp;Import Data
-	  </button>
 	</div>
 	<div class="col-md-4 pull-right">
 	  <div class="input-group">

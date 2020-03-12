@@ -64,11 +64,8 @@
 				<i class="fas fa-chart-bar"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-right" role="menu">
-                <a href="#" class="dropdown-item">Action</a>
-                <a href="#" class="dropdown-item">Another action</a>
-                <a href="#" class="dropdown-item">Something else here</a>
-                <a class="dropdown-divider"></a>
-                <a href="#" class="dropdown-item">Separated link</a>
+                <a href="<?= base_url('admin/dashboard/2019'); ?>" class="dropdown-item">2019</a>
+                <a href="<?= base_url('admin/dashboard/2020'); ?>" class="dropdown-item">2020</a>
               </div>
             </div>
           </div>

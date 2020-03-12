@@ -49,13 +49,15 @@
 		  <?php if($t['id_status'] == 0) : ?>
 			<td><span class="badge badge-secondary">Not Visited</span></td>
 		  <?php elseif($t['id_status'] == 1) : ?>
-			<td><span class="badge badge-info">Visited</span></td>
+			<td><span class="badge badge-info">Visited</span><br>
+			<span class="badge badge-secondary"><?= $t['ket_status']; ?></span></td>
 		  <?php elseif($t['id_status'] == 7) : ?>
 			<td><span class="badge badge-success">Paid</span></td>
 		  <?php elseif($t['id_status'] == 8) : ?>
 			<td><span class="badge badge-danger">Blocked</span></td>
 		  <?php else : ?>
-			<td><span class="badge badge-warning">Not Paid</span></td>
+			<td><span class="badge badge-warning">Not Paid</span><br>
+			<span class="badge badge-secondary"><?= $t['ket_status']; ?></span></td>
 		  <?php endif; ?>
           <td>
             <a href="detail/<?= $t['id_target']; ?>" class="badge badge-primary p-1" title="View Detail">
@@ -66,6 +68,9 @@
 			  data-id_pelanggan="<?= $t['noreg_pelanggan']; ?>"
 			>
 			  <i class="fas fa-edit"></i>
+		    </a>
+			<a href="prints/<?= $t['id_target']; ?>" class="badge badge-success p-1" title="Print Document" target="_blank">
+			  <i class="fas fa-print"></i>
 		    </a>
           </td>
         </tr>

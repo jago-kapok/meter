@@ -11,7 +11,7 @@ class Target extends CI_Controller
     }
 
     public function index()
-    {
+    {		
         $data['title'] = 'Target Database';
 		$data['target'] = $this->ModelMaster->joinTargetUserPelanggan()->result_array();
 		$data['customer'] = $this->ModelMaster->getAll('pelanggan')->result_array();
@@ -156,6 +156,8 @@ class Target extends CI_Controller
 	
 	public function send()
 	{
+		include "./mobile/send_mail_target.php";
+		
 		$id_target = $this->input->post('id_target');
 		$id_user = $this->input->post('id_user');
 		
@@ -165,8 +167,26 @@ class Target extends CI_Controller
 		$where = array('id_target' => $id_target);
 	 
 		$this->ModelMaster->edit('target', $where, $data);
+		
+		$query = $this->ModelMaster->getBy('user', array('id_user'=>$id_user));
+		$row = $query->row();
+		
+		// Fungsi send email
+		$subject	= "no-reply [TARGET OPERASI]";
+		$body   	= '
+<pre style="font-family: courier; font-size: 16px">
+<span style="color:red"><strong>INFORMATION !</strong></span><br/>
+Daftar Target Operasi telah dikirim ke aplikasi APS anda.
+Silakan buka <a href="http://www.p2tl.jos/">Aplikasi APS</a> anda untuk mengecek daftar target operasi<br/><br/><br/><br/>
+
+Terima Kasih.<br/>
+<strong>Administrator P2TL</strong>';
+
+		send($row->email_user, $row->nama_user, $subject, $body, 'Tes');
+		// Fungsi send email
+		
 		$this->session->set_flashdata('message', '<div class="alert for-alert alert-dismissible fade show"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Data '.$id_target.' was updated !<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		redirect('target');
+		// redirect('target');
 	}
 
     public function delete()
@@ -268,4 +288,75 @@ class Target extends CI_Controller
 
         $this->load->view('target/export', $data);
     }
+	
+	public function prints(){
+		require './application/libraries/fpdf.php';
+		
+		$where = ['id_target' => $this->uri->segment(3)];
+		$query = $this->ModelMaster->getByCondition($where);
+		$row = $query->row();
+		
+		$pdf = new FPDF();
+		$pdf->AddPage('P', 'A4');
+		$pdf->SetMargins(10,1,0);
+		
+		$pdf->Image('./assets/dist/img/header.png',2,0,206);
+		$pdf->Ln(30);
+		
+		$pdf->SetFont('Arial','',11);
+		$pdf->Cell(30,6,"Nomor",0,0);
+		$pdf->Cell(30,6,": ".date("d/m/Y"),0,1);
+		$pdf->Cell(30,6,"Lampiran",0,0);
+		$pdf->Cell(30,6,": -",0,1);
+		$pdf->Cell(30,6,"Perihal",0,0);
+		$pdf->Cell(30,6,": Penyelesaian P2TL",0,1);
+		$pdf->Cell(32,6,"",0,0);
+		$pdf->Cell(30,6,"Surat ".$row->ket_status,0,1);
+		$pdf->Ln(15);
+		
+		$pdf->Cell(30,6,"Dengan Hormat,",0,1);
+		$pdf->MultiCell(190,6,"Berdasarkan Berita Acara Hasil Pemeriksaan Penertiban Pemakaian Tenaga Listrik (P2TL) Nomor : ".$row->noba_target.", dengan data  :",0,1);
+		$pdf->Ln();
+		
+		$pdf->SetX(30);
+		$pdf->Cell(40,6,"Nama Penghuni",0,0);
+		$pdf->Cell(50,6,": ".$row->nama_pelanggan,0,1);
+		$pdf->SetX(30);
+		$pdf->Cell(40,6,"Alamat",0,0);
+		$pdf->Cell(50,6,": ".$row->alamat_pelanggan,0,1);
+		$pdf->SetX(30);
+		$pdf->Cell(40,6,"Tarif",0,0);
+		$pdf->Cell(50,6,": ".$row->tarif,0,1);
+		$pdf->SetX(30);
+		$pdf->Cell(40,6,"Daya Ketemuan",0,0);
+		$pdf->Cell(50,6,": ".$row->daya,0,1);
+		$pdf->Ln();
+		
+		$pdf->MultiCell(190,6,"Telah ditemukan pelanggaran yaitu menggunakan energi listrik tanpa alas hak yang sah.",0,1);
+		$pdf->Ln(3);
+		
+		$pdf->MultiCell(190,6,"Kami menunggu kedatangan Tuan/Nyonya/Saudara-i di Kantor PTXYZ  pada setiap jam 08.00 s/d 17.00 WIB, paling lambat 3(tiga) hari kerja sejak tanggal surat diatas untuk melakukan penyelesaian lebih lanjut.",0,1);
+		$pdf->Ln(3);
+		
+		$pdf->MultiCell(190,6,"Demikian disampaikan atas perhatiaanya diucapkan terima kasih.",0,1);
+		$pdf->Ln(20);
+		
+		$pdf->SetX(140);
+		$pdf->Cell(40,6,"Manajer",0,0,"C");
+		$pdf->Ln(30);
+		$pdf->SetX(140);
+		$pdf->Cell(40,6,"( ........................................... )",0,0,"C");
+		$pdf->Ln(40);
+		
+		$pdf->SetFont('Arial','I',10);
+		$pdf->Cell(30,5,"Petugas P2TL",0,0);
+		$pdf->Cell(50,5,": ".$row->nama_user,0,1);
+		$pdf->Cell(30,5,"Nomor BA P2TL",0,0);
+		$pdf->Cell(50,5,": ".$row->noba_target,0,1);
+		
+		$pdf->SetY(-5);
+		$pdf->Image('./assets/dist/img/footer.png',2,268,206);
+		
+		$pdf->Output('Surat Panggilan P2TL.pdf', 'I');
+	}
 }
