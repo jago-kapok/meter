@@ -11,9 +11,9 @@ class Target extends CI_Controller
     }
 
     public function index()
-    {		
+    {
         $data['title'] = 'Target Database';
-		$data['target'] = $this->ModelMaster->joinTargetUserPelanggan()->result_array();
+		$data['target'] = $this->ModelMaster->getByCondition(array('target.id_status'=>0))->result_array();
 		$data['customer'] = $this->ModelMaster->getAll('pelanggan')->result_array();
 		$data['user'] = $this->ModelMaster->getAll('user')->result_array();
 		$data['status'] = $this->ModelMaster->getAll('status')->result_array();
@@ -241,7 +241,7 @@ Terima Kasih.<br/>
 	
 	public function export()
     {
-		$where = "id_status != 1";
+		$where = "target.id_status != 1";
 		
         $data['title'] = 'Target Database';
 		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
@@ -251,7 +251,7 @@ Terima Kasih.<br/>
 	
 	public function export_visited()
     {
-		$where = "id_status = 1";
+		$where = "target.id_status = 1";
 		
         $data['title'] = 'Target Database';
 		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
@@ -261,7 +261,7 @@ Terima Kasih.<br/>
 	
 	public function export_not_paid()
     {
-		$where = "id_status > 1 AND id_status < 7";
+		$where = "target.id_status > 1 AND target.id_status < 7";
 		
         $data['title'] = 'Target Database';
 		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
@@ -271,7 +271,7 @@ Terima Kasih.<br/>
 	
 	public function export_paid()
     {
-		$where = "id_status = 7";
+		$where = "target.id_status = 7";
 		
         $data['title'] = 'Target Database';
 		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
@@ -281,7 +281,7 @@ Terima Kasih.<br/>
 	
 	public function export_blocked()
     {
-		$where = "id_status = 8";
+		$where = "target.id_status = 8";
 		
         $data['title'] = 'Target Database';
 		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
@@ -303,9 +303,13 @@ Terima Kasih.<br/>
 		$pdf->Image('./assets/dist/img/header.png',2,0,206);
 		$pdf->Ln(30);
 		
+		$pdf->SetFont('Arial','I',11);
+		$pdf->Cell(190,6,date("d-M-Y"),0,1,"R");
+		
 		$pdf->SetFont('Arial','',11);
 		$pdf->Cell(30,6,"Nomor",0,0);
-		$pdf->Cell(30,6,": ".date("d/m/Y"),0,1);
+		$pdf->Cell(30,6,": ",0,1);
+		// $pdf->Cell(30,6,": ".date("d/m/Y"),0,1);
 		$pdf->Cell(30,6,"Lampiran",0,0);
 		$pdf->Cell(30,6,": -",0,1);
 		$pdf->Cell(30,6,"Perihal",0,0);
@@ -335,7 +339,7 @@ Terima Kasih.<br/>
 		$pdf->MultiCell(190,6,"Telah ditemukan pelanggaran yaitu menggunakan energi listrik tanpa alas hak yang sah.",0,1);
 		$pdf->Ln(3);
 		
-		$pdf->MultiCell(190,6,"Kami menunggu kedatangan Tuan/Nyonya/Saudara-i di Kantor PTXYZ  pada setiap jam 08.00 s/d 17.00 WIB, paling lambat 3(tiga) hari kerja sejak tanggal surat diatas untuk melakukan penyelesaian lebih lanjut.",0,1);
+		$pdf->MultiCell(190,6,"Kami menunggu kedatangan Tuan/Nyonya/Saudara-i di Kantor PT. XYZ ____________________ pada setiap jam 08.00 s/d 17.00 WIB, paling lambat 3(tiga) hari kerja sejak tanggal surat diatas untuk melakukan penyelesaian lebih lanjut.",0,1);
 		$pdf->Ln(3);
 		
 		$pdf->MultiCell(190,6,"Demikian disampaikan atas perhatiaanya diucapkan terima kasih.",0,1);
@@ -346,7 +350,7 @@ Terima Kasih.<br/>
 		$pdf->Ln(30);
 		$pdf->SetX(140);
 		$pdf->Cell(40,6,"( ........................................... )",0,0,"C");
-		$pdf->Ln(40);
+		$pdf->Ln(30);
 		
 		$pdf->SetFont('Arial','I',10);
 		$pdf->Cell(30,5,"Petugas P2TL",0,0);

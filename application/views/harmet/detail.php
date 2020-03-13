@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row mb-2">
 	<div class="col-sm-6">
-      <span class="btn"><strong>Reg. Number : <i><?= $target->noreg_pelanggan; ?></i></strong></span>
+      <span class="btn"><strong>Reg. Number : <i><?= $harmet->noreg_pelanggan; ?></i></strong></span>
     </div>
     <div class="col-sm-6">
       <a href="javascript:void(0)" class="btn btn-success btn-sm float-right ml-2" data-toggle="modal" data-target="#modal-view-document">
@@ -18,15 +18,7 @@
         <div class="card">
           <div class="card-header">
             <h5 class="card-title">
-			  <?php if($target->id_status == 1) : ?>
-				<span class="badge badge-info">VISITED</span>
-			  <?php elseif($target->id_status == 7) : ?>
-				<span class="badge badge-success">PAID</span>
-			  <?php elseif($target->id_status == 8) : ?>
-				<span class="badge badge-danger">BLOCKED</span>
-			  <?php else : ?>
-				<span class="badge badge-warning">NOT PAID</span>
-			  <?php endif; ?>
+			  <span class="badge badge-warning"><?= $harmet->status_harmet; ?></span>
 			</h5>
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -38,43 +30,31 @@
 			  <tbody>
 				<tr class="d-flex">
 				  <th class="col-md-3">Customer Name</th>
-				  <td class="col-md-9">: <?= $target->nama_pelanggan; ?></td>
+				  <td class="col-md-9">: <?= $harmet->nama_pelanggan; ?></td>
 				</tr>
 				<tr class="d-flex">
 				  <th class="col-md-3">Created Date</th>
-				  <td class="col-md-9">: <?= $target->tgl_create; ?></td>
+				  <td class="col-md-9">: <?= $harmet->tanggal_penggantian_harmet; ?></td>
+				</tr>
+				<tr class="d-flex">
+				  <th class="col-md-3" style="vertical-align:middle">Address</th>
+				  <td class="col-md-9">: <?= $harmet->alamat_pelanggan; ?></td>
+				</tr>
+				<tr class="d-flex">
+				  <th class="col-md-3" style="vertical-align:middle">Dscription</th>
+				  <td class="col-md-9">: <?= $harmet->ket_harmet; ?></td>
 				</tr>
 				<tr class="d-flex">
 				  <th class="col-md-3">BA Number</th>
-				  <td class="col-md-9">: <?= $target->noba_target; ?></td>
+				  <td class="col-md-9">: <?= $harmet->no_ba_harmet; ?></td>
 				</tr>
 				<tr class="d-flex">
 				  <th class="col-md-3">BA Created Date</th>
-				  <td class="col-md-9">: <?= $target->tgl_ba; ?></td>
-				</tr>
-				<tr class="d-flex">
-				  <th class="col-md-3" style="vertical-align:middle">Description</th>
-				  <td class="col-md-9">: <?= $target->ket_target; ?></td>
-				</tr>
-				<tr class="d-flex">
-				  <th class="col-md-3" style="vertical-align:middle">Action</th>
-				  <td class="col-md-9">: <?= $target->tindakan; ?></td>
-				</tr>
-				<tr class="d-flex">
-				  <th class="col-md-3">Infraction</th>
-				  <td class="col-md-9">: <?= $target->golongan_pelanggaran; ?></td>
+				  <td class="col-md-9">: <?= $harmet->tanggal_ba_harmet; ?></td>
 				</tr>
 				<tr class="d-flex">
 				  <th class="col-md-3">Technician</th>
-				  <td class="col-md-9">: <?= $target->nama_user; ?></td>
-				</tr>
-				<tr class="d-flex">
-				  <th class="col-md-3">Latitude</th>
-				  <td class="col-md-9">: <?= $target->lat_target; ?></td>
-				</tr>
-				<tr class="d-flex">
-				  <th class="col-md-3">Longitude</th>
-				  <td class="col-md-9">: <?= $target->lang_target; ?></td>
+				  <td class="col-md-9">: <?= $harmet->nama_user; ?></td>
 				</tr>
 			  </tbody>
 			</table>
@@ -91,7 +71,6 @@
             <div class="card-tools">
               <a href="javascript:void(0)" class="badge badge-primary" style="font-size:95%" data-toggle="modal" data-target="#update_harmet"
 			    data-id_harmet="<?= empty($harmet->id_harmet) ? '0' : $harmet->id_harmet; ?>"
-			    data-id_target="<?= $target->id_target; ?>"
 			    data-merk_harmet="<?= empty($harmet->merk_harmet) ? '0' : $harmet->merk_harmet; ?>"
 			    data-no_meter_harmet="<?= empty($harmet->no_meter_harmet) ? '0' : $harmet->no_meter_harmet; ?>"
 			    data-tahun_harmet="<?= empty($harmet->tahun_harmet) ? '0' : $harmet->tahun_harmet; ?>"

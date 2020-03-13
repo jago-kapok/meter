@@ -13,10 +13,9 @@ class Harmet extends CI_Controller
     public function index()
     {
         $data['title'] = 'Harmet Database';
-		$data['target'] = $this->ModelMaster->joinTargetUserPelanggan()->result_array();
+		$data['harmet'] = $this->ModelMaster->getHarmet(array('1'=>1))->result_array();
 		$data['customer'] = $this->ModelMaster->getAll('pelanggan')->result_array();
 		$data['user'] = $this->ModelMaster->getAll('user')->result_array();
-		$data['status'] = $this->ModelMaster->getAll('status')->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('harmet/index', $data);
@@ -48,9 +47,6 @@ class Harmet extends CI_Controller
 		
         $data['title'] = 'View History';
 		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();
-		$data['user'] = $this->ModelMaster->getAll('user')->result_array();
-		$data['status'] = $this->ModelMaster->getAll('status')->result_array();
-		$data['golongan_pelanggaran'] = $this->ModelMaster->getAll('golongan_pelanggaran')->result_array();
 		
 		if($this->input->post('id_user') != ''){
 			if($id_user == '%'){
@@ -71,14 +67,14 @@ class Harmet extends CI_Controller
 	
 	public function detail()
     {
-		$where = ['id_target' => $this->uri->segment(3)];
+		$where = ['id_harmet' => $this->uri->segment(3)];
 		
         $data['title'] = 'View Detailed History';
-		$target = $this->ModelMaster->getByCondition($where);
-		$data['target'] = $target->row();
-		
-		$harmet = $this->ModelMaster->getBy('harmet', 'harmet.id_target = '.$this->uri->segment(3).' AND harmet.status_harmet = 1');
+		$harmet = $this->ModelMaster->getHarmet($where);
 		$data['harmet'] = $harmet->row();
+		
+		// $harmet = $this->ModelMaster->getBy('harmet', 'harmet.id_harmet = '.$this->uri->segment(3).' AND harmet.status_harmet = 1');
+		// $data['harmet'] = $harmet->row();
 		
         $this->load->view('templates/header', $data);
         $this->load->view('harmet/detail', $data);
@@ -111,7 +107,7 @@ class Harmet extends CI_Controller
 	
 	public function export()
     {
-		$where = "id_status != 1";
+		$where = "target.id_status != 1";
 		
         $data['title'] = 'Target Database';
 		$data['target'] = $this->ModelMaster->getByCondition($where)->result_array();

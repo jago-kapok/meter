@@ -141,7 +141,7 @@
                   <p>&nbsp;&nbsp;P2TL</p>
                 </a>
               </li>
-              <li class="nav-item">
+			  <li class="nav-item">
                 <a href="<?= base_url('harmet'); ?>" class="nav-link">
                   <i class="fas fa-angle-double-right nav-icon"></i>
                   <p>&nbsp;&nbsp;Harmet</p>
@@ -162,12 +162,6 @@
                 <a href="<?= base_url('target/history'); ?>" class="nav-link">
                   <i class="fas fa-angle-double-right nav-icon"></i>
                   <p>&nbsp;&nbsp;P2TL</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('harmet/history'); ?>" class="nav-link">
-                  <i class="fas fa-angle-double-right nav-icon"></i>
-                  <p>&nbsp;&nbsp;Harmet</p>
                 </a>
               </li>
             </ul>

@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+date_default_timezone_set("Asia/Jakarta");
 
 class Admin extends CI_Controller
 {
@@ -36,6 +37,7 @@ class Admin extends CI_Controller
 		$data['target'] = $this->ModelMaster->getBy('target', array('YEAR(tgl_create)'=>$year))->num_rows();
 		$data['user'] = $this->ModelMaster->getAll('user')->num_rows();
 		$data['pelanggan'] = $this->ModelMaster->getAll('pelanggan')->num_rows();
+		$data['harmet'] = $this->ModelMaster->getBy('harmet', array('status_harmet'=>1))->num_rows();
 		
         $this->load->view('templates/header', $data);
         $this->load->view('admin/index', $data);

@@ -5,7 +5,7 @@
         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-cog"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Target - Visited</span>
+          <span class="info-box-text">P2TL - Visited</span>
 		  <a href="<?= base_url('target/export_visited'); ?>" style="float:right; margin-top:-20px"><i class="fa fa-file-download"></i></a>
           <span class="info-box-number" style="font-size:20px"><?= $visited; ?></span>
         </div>
@@ -16,7 +16,7 @@
         <span class="info-box-icon bg-warning elevation-1"><i class="fab fa-creative-commons-nc"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Target - Not Paid</span>
+          <span class="info-box-text">P2TL - Not Paid</span>
 		  <a href="<?= base_url('target/export_not_paid'); ?>" style="float:right; margin-top:-20px"><i class="fa fa-file-download"></i></a>
           <span class="info-box-number" style="font-size:20px"><?= $not_paid; ?></span>
         </div>
@@ -30,7 +30,7 @@
         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Target - Paid</span>
+          <span class="info-box-text">P2TL - Paid</span>
 		  <a href="<?= base_url('target/export_paid'); ?>" style="float:right; margin-top:-20px"><i class="fa fa-file-download"></i></a>
           <span class="info-box-number" style="font-size:20px"><?= $paid; ?></span>
         </div>
@@ -41,7 +41,7 @@
         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-ban"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Target - Blocked</span>
+          <span class="info-box-text">P2TL - Blocked</span>
 		  <a href="<?= base_url('target/export_blocked'); ?>" style="float:right; margin-top:-20px"><i class="fa fa-file-download"></i></a>
           <span class="info-box-number" style="font-size:20px"><?= $blocked; ?></span>
         </div>
@@ -104,10 +104,18 @@
               </div>
 
               <div class="progress-group">
-                Total Target
+                Total P2TL
                 <span class="float-right"><b><?= $target; ?></b></span>
                 <div class="progress progress-sm">
                   <div class="progress-bar bg-success" style="width: <?= $target; ?>%"></div>
+                </div>
+			  </div>
+			  
+			  <div class="progress-group">
+                Total Harmet
+                <span class="float-right"><b><?= $harmet; ?></b></span>
+                <div class="progress progress-sm">
+                  <div class="progress-bar bg-warning" style="width: <?= $harmet; ?>%"></div>
                 </div>
 			  </div>
             </div>

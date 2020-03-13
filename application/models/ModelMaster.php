@@ -29,24 +29,24 @@ class ModelMaster extends CI_Model
 		$this->db->delete($table);
 	}
 	
-	public function joinTargetUserPelanggan()
-    {
-        $this->db->select('target.*, pelanggan.noreg_pelanggan, pelanggan.nama_pelanggan, user.nama_user, pelanggan.alamat_pelanggan, pelanggan.tarif, pelanggan.daya');
-        $this->db->from('target');
-        $this->db->join('pelanggan', 'pelanggan.id_pelanggan = target.id_pelanggan');
-		$this->db->join('user', 'user.id_user = target.id_user', 'left');
-		$this->db->where('target.id_status', '0');
-        
-		return $this->db->get();
-    }
-	
 	public function getByCondition($where)
 	{
 		$this->db->select('target.*, pelanggan.noreg_pelanggan, pelanggan.nama_pelanggan, user.nama_user, pelanggan.alamat_pelanggan, pelanggan.tarif, pelanggan.daya, status.ket_status');
         $this->db->from('target');
         $this->db->join('pelanggan', 'pelanggan.id_pelanggan = target.id_pelanggan');
-		$this->db->join('status', 'status.id_status = target.id_status');
+		$this->db->join('status', 'status.id_status = target.id_status', 'left');
 		$this->db->join('user', 'user.id_user = target.id_user', 'left');
+		$this->db->where($where);
+        
+		return $this->db->get();
+	}
+	
+	public function getHarmet($where)
+	{
+		$this->db->select('harmet.*, pelanggan.noreg_pelanggan, pelanggan.nama_pelanggan, user.nama_user, pelanggan.alamat_pelanggan, pelanggan.tarif, pelanggan.daya');
+        $this->db->from('harmet');
+        $this->db->join('pelanggan', 'pelanggan.id_pelanggan = harmet.id_pelanggan');
+		$this->db->join('user', 'user.id_user = harmet.id_user', 'left');
 		$this->db->where($where);
         
 		return $this->db->get();
