@@ -39,6 +39,19 @@ class Admin extends CI_Controller
 		$data['pelanggan'] = $this->ModelMaster->getAll('pelanggan')->num_rows();
 		$data['harmet'] = $this->ModelMaster->getBy('harmet', array('status_harmet'=>1))->num_rows();
 		
+		$data['harmet_target'] = $this->ModelMaster->getBy('harmet_target', array('status_harmet_target'=>1))->row();
+		$harmet_target = $this->ModelMaster->getBy('harmet_target', array('status_harmet_target'=>1))->row();
+		
+		$harmet_tahun = $this->ModelMaster->getBy('harmet', array('YEAR(tanggal_penggantian_harmet)'=>$year))->num_rows();
+		$data['harmet_tahun'] = ($harmet_tahun / $harmet_target->tahun_harmet_target) * 100;
+		$data['harmet_tahun_terealisasi'] = $harmet_tahun;
+		
+		$data['harmet_bulan'] = round((($harmet_tahun / 12) / $harmet_target->bulan_harmet_target) * 100, 3);
+		$data['harmet_bulan_terealisasi'] = round($harmet_tahun / 12, 3);
+		
+		$data['harmet_hari'] = round((($harmet_tahun / 365) / $harmet_target->hari_harmet_target) * 100, 3);
+		$data['harmet_hari_terealisasi'] = round($harmet_tahun / 365, 3);
+		
         $this->load->view('templates/header', $data);
         $this->load->view('admin/index', $data);
         $this->load->view('templates/footer');

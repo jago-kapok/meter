@@ -53,7 +53,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h5 class="card-title">Monthly Recap Report</h5>
+          <h5 class="card-title">P2TL Recap Report</h5>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -73,50 +73,90 @@
         
 		<div class="card-body">
           <div class="row">
-            <div class="col-md-8">
-              <p class="text-center">
-                <!--<strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>-->
-              </p>
-
+            <div class="col-md-7">
               <div class="chart">
                 <canvas id="targetChart" height="300" style="height:300px"></canvas>
               </div>
             </div>
-            <div class="col-md-4">
-              <p class="text-center">
-                <strong>Table Information</strong>
-              </p>
+            <div class="col-md-5">
+			  <div class="row">
+			    <div class="col-md-12">
+                  <p class="text-center">
+                    <strong>Table Information</strong>
+                  </p>
 
-              <div class="progress-group">
-                Total User
-                <span class="float-right"><b><?= $user; ?></b></span>
-                <div class="progress progress-sm">
-                  <div class="progress-bar bg-primary" style="width: <?= $user; ?>%"></div>
-                </div>
-              </div>
+                  <div class="progress-group">
+                   Total User
+                    <span class="float-right"><b><?= $user; ?></b></span>
+                    <div class="progress progress-sm">
+                      <div class="progress-bar bg-primary" style="width: <?= $user; ?>%"></div>
+                    </div>
+                  </div>
               
-              <div class="progress-group">
-                Total Customer
-                <span class="float-right"><b><?= $pelanggan; ?></b></span>
-                <div class="progress progress-sm">
-                  <div class="progress-bar bg-danger" style="width: <?= $pelanggan; ?>%"></div>
-                </div>
-              </div>
+                  <div class="progress-group">
+                    Total Customer
+                    <span class="float-right"><b><?= $pelanggan; ?></b></span>
+                    <div class="progress progress-sm">
+                      <div class="progress-bar bg-danger" style="width: <?= $pelanggan; ?>%"></div>
+                    </div>
+                  </div>
 
-              <div class="progress-group">
-                Total P2TL
-                <span class="float-right"><b><?= $target; ?></b></span>
-                <div class="progress progress-sm">
-                  <div class="progress-bar bg-success" style="width: <?= $target; ?>%"></div>
-                </div>
+                  <div class="progress-group">
+                    Total P2TL
+                    <span class="float-right"><b><?= $target; ?></b></span>
+                    <div class="progress progress-sm">
+                      <div class="progress-bar bg-success" style="width: <?= $target; ?>%"></div>
+                    </div>
+			      </div>
+			    </div>
 			  </div>
 			  
-			  <div class="progress-group">
-                Total Harmet
-                <span class="float-right"><b><?= $harmet; ?></b></span>
-                <div class="progress progress-sm">
-                  <div class="progress-bar bg-warning" style="width: <?= $harmet; ?>%"></div>
-                </div>
+			  <div class="row mt-3">
+			    <div class="col-md-12">
+                  <p class="text-center">
+                    <strong>Average Harmet Target</strong>
+                  </p>
+
+				  <div class="row">
+				    <div class="col-md-4">
+                      <div class="small-box bg-success">
+					    <div class="inner">
+						  <h3><?= $harmet_tahun; ?><sup style="font-size: 20px">%</sup></h3>
+
+						  <div style="font-size:12px">Realized<br>
+						    <span><b><?= $harmet_tahun_terealisasi; ?></b> / <?= $harmet_target->tahun_harmet_target; ?></span>
+						  </div>
+					    </div>
+					    <a href="javascript:void(0)" class="small-box-footer">Yearly</a>
+					  </div>
+					</div>
+					
+					<div class="col-md-4">
+                      <div class="small-box bg-info">
+					    <div class="inner">
+						  <h3><?= $harmet_bulan; ?><sup style="font-size: 20px">%</sup></h3>
+
+						  <div style="font-size:12px">Average Realized<br>
+						    <span><b><?= $harmet_bulan_terealisasi; ?></b> / <?= $harmet_target->bulan_harmet_target; ?></span>
+						  </div>
+					    </div>
+					    <a href="javascript:void(0)" class="small-box-footer">Monthly</a>
+					  </div>
+					</div>
+					
+					<div class="col-md-4">
+                      <div class="small-box bg-warning">
+					    <div class="inner">
+						  <h3><?= $harmet_hari; ?><sup style="font-size: 20px">%</sup></h3>
+
+						  <div style="font-size:12px">Average Realized<br>
+						    <span><b><?= $harmet_hari_terealisasi; ?></b> / <?= $harmet_target->hari_harmet_target; ?></span>
+						  </div>
+					    </div>
+					    <a href="javascript:void(0)" class="small-box-footer">Daily</a>
+					  </div>
+					</div>
+			    </div>
 			  </div>
             </div>
           </div>

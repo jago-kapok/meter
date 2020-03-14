@@ -48,6 +48,20 @@ class ModelMaster extends CI_Model
         $this->db->join('pelanggan', 'pelanggan.id_pelanggan = harmet.id_pelanggan');
 		$this->db->join('user', 'user.id_user = harmet.id_user', 'left');
 		$this->db->where($where);
+		$this->db->order_by('harmet.tanggal_penggantian_harmet', 'DESC');
+		$this->db->limit(1);
+        
+		return $this->db->get();
+	}
+	
+	public function getHarmetDetail($where)
+	{
+		$this->db->select('harmet.*, pelanggan.noreg_pelanggan, pelanggan.nama_pelanggan, user.nama_user, pelanggan.alamat_pelanggan, pelanggan.tarif, pelanggan.daya');
+        $this->db->from('harmet');
+        $this->db->join('pelanggan', 'pelanggan.id_pelanggan = harmet.id_pelanggan');
+		$this->db->join('user', 'user.id_user = harmet.id_user', 'left');
+		$this->db->where($where);
+		$this->db->order_by('harmet.tanggal_penggantian_harmet', 'DESC');
         
 		return $this->db->get();
 	}

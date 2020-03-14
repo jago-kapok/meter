@@ -107,19 +107,38 @@
 	$('#update_harmet').on('show.bs.modal', function(event){
 	  var button = $(event.relatedTarget);
 	  var id_harmet = button.data('id_harmet');
-	  var id_target = button.data('id_target');
+	  var id_pelanggan = button.data('id_pelanggan');
 	  var merk_harmet = button.data('merk_harmet');
 	  var no_meter_harmet = button.data('no_meter_harmet');
 	  var tahun_harmet = button.data('tahun_harmet');
 	  var stan_harmet = button.data('stan_harmet');
+	  var no_ba_harmet = button.data('no_ba_harmet');
+	  var tanggal_ba_harmet = button.data('tanggal_ba_harmet');
 	  
 	  var modal = $(this);
 	  modal.find('.modal-body input[name=id_harmet]').val(id_harmet);
-	  modal.find('.modal-body input[name=id_target]').val(id_target);
+	  modal.find('.modal-body input[name=id_pelanggan]').val(id_pelanggan);
 	  modal.find('.modal-body #merk_harmet').val(merk_harmet);
 	  modal.find('.modal-body #no_meter_harmet').val(no_meter_harmet);
 	  modal.find('.modal-body #tahun_harmet').val(tahun_harmet);
 	  modal.find('.modal-body #stan_harmet').val(stan_harmet);
+	  modal.find('.modal-body #no_ba_harmet').val(no_ba_harmet);
+	  modal.find('.modal-body #tanggal_ba_harmet').val(tanggal_ba_harmet);
+	});
+	
+	// Menangkap data harmet target dari modal
+	$('#update_harmet_target').on('show.bs.modal', function(event){
+	  var button = $(event.relatedTarget);
+	  var id_harmet_target = button.data('id_harmet_target');
+	  var hari_harmet_target = button.data('hari_harmet_target');
+	  var bulan_harmet_target = button.data('bulan_harmet_target');
+	  var tahun_harmet_target = button.data('tahun_harmet_target');
+	  
+	  var modal = $(this);
+	  modal.find('.modal-body input[name=id_harmet_target]').val(id_harmet_target);
+	  modal.find('.modal-body input[name=hari_harmet_target]').val(hari_harmet_target);
+	  modal.find('.modal-body input[name=bulan_harmet_target]').val(bulan_harmet_target);
+	  modal.find('.modal-body input[name=tahun_harmet_target]').val(tahun_harmet_target);
 	});
 	
 	// Mengambil data JSON dari tabel customer berdasar id

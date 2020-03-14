@@ -17,11 +17,11 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
+  <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
   
   <!-- Maps -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js"></script>
-  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css">
+  <!--<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css">-->
   
   <style>
     body { font-family: Arial; font-size:85% }
@@ -162,6 +162,23 @@
                 <a href="<?= base_url('target/history'); ?>" class="nav-link">
                   <i class="fas fa-angle-double-right nav-icon"></i>
                   <p>&nbsp;&nbsp;P2TL</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+		  <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                &nbsp;&nbsp;Settings
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('harmet/setting'); ?>" class="nav-link">
+                  <i class="fas fa-angle-double-right nav-icon"></i>
+                  <p>&nbsp;&nbsp;Harmet Target</p>
                 </a>
               </li>
             </ul>

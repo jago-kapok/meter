@@ -15,7 +15,7 @@ class Target extends CI_Controller
         $data['title'] = 'Target Database';
 		$data['target'] = $this->ModelMaster->getByCondition(array('target.id_status'=>0))->result_array();
 		$data['customer'] = $this->ModelMaster->getAll('pelanggan')->result_array();
-		$data['user'] = $this->ModelMaster->getAll('user')->result_array();
+		$data['user'] = $this->ModelMaster->getBy('user', array('id_level'=>2))->result_array();
 		$data['status'] = $this->ModelMaster->getAll('status')->result_array();
 
         $this->load->view('templates/header', $data);
